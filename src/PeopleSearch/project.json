@@ -38,7 +38,7 @@
         "emitEntryPoint": true,
         "preserveCompilationContext": true,
         "warningsAsErrors": true,
-        "additionalArguments": [ "/ruleset:./Stylecop.ruleset", "/additionalfile:./Stylecop.json" ],
+        "additionalArguments": [ "/ruleset:Stylecop.PeopleSearch.ruleset", "/additionalfile:Stylecop.PeopleSearch.json" ],
         "xmlDoc": true
     },
 
