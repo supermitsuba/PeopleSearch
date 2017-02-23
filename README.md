@@ -1,4 +1,4 @@
-# PeopleSearch
+# PeopleSearch  ![](https://travis-ci.org/supermitsuba/PeopleSearch.svg?branch=master)
 A site to search for people
 Please visit [localhost](http://localhost:8000/)
 
