@@ -5,6 +5,3 @@ mono: none
 dotnet: 1.0.0-preview2-003121
 script:
   - ./build.sh --quiet verify
-install:
-  - sudo apt-get install -y gtk-sharp2
-  - nuget restore PeopleSearch.sln
