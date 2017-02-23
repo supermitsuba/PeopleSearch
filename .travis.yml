@@ -7,4 +7,4 @@ script:
   - ./build.sh --quiet verify
 install:
   - sudo apt-get install -y gtk-sharp2
-  - nuget restore solution-name.sln
+  - nuget restore PeopleSearch.sln
