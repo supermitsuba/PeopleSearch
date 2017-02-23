@@ -11,7 +11,7 @@ CI Builds use [Travis CI](https://travis-ci.com/).  They are located here:
 Deployment Scripts are located here: 
 
 - [ ] API Documentation
-- [ ] CI
+- [X] CI
 - [ ] SQL Scripts
 - [ ] Unit Tests
 - [ ] Code
