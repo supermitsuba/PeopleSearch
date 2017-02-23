@@ -55,3 +55,4 @@ Application Checklist
   - use this API https://uinames.com/api/?amount=25&region=united+states
 - [ ] Scripts to deploy to Azure?
 - [ ] Usage Documentation
+- [ ] Tradeoffs
