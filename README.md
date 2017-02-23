@@ -16,6 +16,10 @@ Deployment Scripts are located here:
 - [ ] SQL Scripts
 - [ ] Unit Tests
 - [ ] Code
+  - [ ] Entity Framework
+  - [ ] Logger - Log4Net
+  - [ ] Angular.js
+  - [ ] Caching and Redis ?
 - [ ] Performance Tests ?
 - [X] Static Code Analysis
   - Enabled [style cop analyzer](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/Configuration.md)
@@ -24,7 +28,6 @@ Deployment Scripts are located here:
 - [ ] CSS Preprocessor
 - [ ] JS minify and Bundle
 - [ ] Twitter Bootstrap
-- [ ] Angular.js
 - [ ] SQL Server Local DB
 - [X] Name Generator?
   - use this API https://uinames.com/api/?amount=25&region=united+states
