@@ -27,7 +27,7 @@ SQL Scripts are located here:
 
 CI Builds use [Travis CI](https://travis-ci.com/).  They are located here: [PeopleSearch CI](https://travis-ci.org/supermitsuba/PeopleSearch)
 
-Deployment Scripts are located here: 
+Deployment Scripts are located here: [Docker deployment README](https://github.com/supermitsuba/PeopleSearch/tree/master/deployment/docker)
 
 Application Checklist
 ---------------------
