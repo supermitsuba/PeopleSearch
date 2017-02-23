@@ -1,7 +1,5 @@
-# PeopleSearch  ![](https://travis-ci.org/supermitsuba/PeopleSearch.svg?branch=master)
-
-The People Search Application
-=============================
+The People Search Application ![](https://travis-ci.org/supermitsuba/PeopleSearch.svg?branch=master)
+====================================================================================================
 
 Business Requirements
 ---------------------
