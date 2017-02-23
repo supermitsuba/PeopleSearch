@@ -18,6 +18,9 @@ Technical Requirements
 - Use Entity Framework Code First to talk to the database
 - Unit Tests for appropriate parts of the application
 
+Quick Links
+-----------
+
 Please visit [localhost](http://localhost:8000/)
 
 API documentation is located here: 
@@ -27,6 +30,9 @@ SQL Scripts are located here:
 CI Builds use [Travis CI](https://travis-ci.com/).  They are located here: [PeopleSearch CI](https://travis-ci.org/supermitsuba/PeopleSearch)
 
 Deployment Scripts are located here: 
+
+Application Checklist
+---------------------
 
 - [ ] API Documentation
 - [X] CI
