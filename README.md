@@ -47,7 +47,7 @@ Application Checklist
 - [ ] Performance Tests ?
 - [X] Static Code Analysis
   - Enabled [style cop analyzer](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/Configuration.md)
-- [ ] Docker Scripts ?
+- [X] Docker Scripts ?
 - [ ] Front-End Build Process ?
 - [ ] CSS Preprocessor
 - [ ] JS minify and Bundle
