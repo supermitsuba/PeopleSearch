@@ -13,13 +13,13 @@ Deployment Scripts are located here:
 - [ ] API Documentation
 - [X] CI
   - Travis CI is working for .net CORE
-- [ ] SQL Scripts
-- [ ] Unit Tests
 - [ ] Code
   - [ ] Entity Framework
   - [ ] Logger - Log4Net
   - [ ] Angular.js
   - [ ] Caching and Redis ?
+  - [ ] SQL Scripts
+  - [ ] Unit Tests
 - [ ] Performance Tests ?
 - [X] Static Code Analysis
   - Enabled [style cop analyzer](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/Configuration.md)
