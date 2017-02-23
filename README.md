@@ -17,8 +17,8 @@ Deployment Scripts are located here:
 - [ ] Unit Tests
 - [ ] Code
 - [ ] Performance Tests ?
-- [ ] Static Code Analysis
-  - Enabled (style cop analyzer)[https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/Configuration.md]
+- [X] Static Code Analysis
+  - Enabled [style cop analyzer](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/Configuration.md)
 - [ ] Docker Scripts ?
 - [ ] Front-End Build Process ?
 - [ ] CSS Preprocessor
