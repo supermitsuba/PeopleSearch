@@ -60,9 +60,11 @@ namespace PeopleSearch
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseApplicationInsightsRequestTelemetry();
+            /*
+             app.UseApplicationInsightsRequestTelemetry();
 
-            app.UseApplicationInsightsExceptionTelemetry();
+             app.UseApplicationInsightsExceptionTelemetry();
+            */
 
             app.UseMvc();
         }
