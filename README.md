@@ -42,6 +42,8 @@ Application Checklist
   - [ ] Caching and Redis ?
   - [ ] SQL Scripts
   - [ ] Unit Tests
+  - [ ] Moq
+  - [ ] DI/ IOC -> Unity?
 - [ ] Performance Tests ?
 - [X] Static Code Analysis
   - Enabled [style cop analyzer](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/Configuration.md)
