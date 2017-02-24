@@ -21,7 +21,7 @@ Quick Links
 
 Please visit [localhost](http://localhost:8000/)
 
-API documentation is located here: 
+API documentation is located here: [Swagger Documentation](https://github.com/supermitsuba/PeopleSearch/tree/master/documentation)
 
 SQL Scripts are located here: 
 
@@ -32,7 +32,8 @@ Deployment Scripts are located here: [Docker deployment README](https://github.c
 Application Checklist
 ---------------------
 
-- [ ] API Documentation
+- [X] API Documentation
+  - This is at [Swagger documentation](https://github.com/supermitsuba/PeopleSearch/tree/master/documentation)
 - [X] CI
   - Travis CI is working for .net CORE
   - build.sh needs ```chmod a+x build.sh``` to work properly
