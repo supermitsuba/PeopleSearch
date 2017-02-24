@@ -37,11 +37,6 @@ You might notice that with each feature there is a release created.  This should
 Application Checklist
 ---------------------
 
-- [X] API Documentation
-  - This is at [Swagger documentation](https://github.com/supermitsuba/PeopleSearch/tree/master/documentation)
-- [X] CI
-  - Travis CI is working for .net CORE
-  - build.sh needs ```chmod a+x build.sh``` to work properly
 - [ ] Code
   - [ ] Logger - Log4Net
   - [ ] Caching and Redis ?
@@ -50,13 +45,21 @@ Application Checklist
 - [ ] SQL Server Local DB
   - [ ] SQL Scripts
   - [ ] Entity Framework
-- [X] Add Unit Test Project
-  - [ ] Write Unit Tests
+- [ ] Performance Tests ?
+- [ ] Usage Documentation
+- [ ] Tradeoffs
 - [ ] Front-End Build Process ?
   - [ ] Angular.js
   - [ ] CSS Preprocessor
   - [ ] JS minify and Bundle
   - [ ] Twitter Bootstrap
+- [X] Add Unit Test Project
+  - [ ] Write Unit Tests
+- [X] API Documentation
+  - This is at [Swagger documentation](https://github.com/supermitsuba/PeopleSearch/tree/master/documentation)
+- [X] CI
+  - Travis CI is working for .net CORE
+  - build.sh needs ```chmod a+x build.sh``` to work properly
 - [X] Static Code Analysis
   - Enabled [style cop analyzer](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/Configuration.md)
 - [X] Deployments
@@ -64,7 +67,5 @@ Application Checklist
   - [ ] Scripts to deploy to Azure?
 - [X] Name Generator?
   - use this API https://uinames.com/api/?amount=25&region=united+states
-- [ ] Performance Tests ?
 - [X] Releases
-- [ ] Usage Documentation
-- [ ] Tradeoffs
+
