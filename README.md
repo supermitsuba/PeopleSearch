@@ -38,25 +38,27 @@ Application Checklist
   - Travis CI is working for .net CORE
   - build.sh needs ```chmod a+x build.sh``` to work properly
 - [ ] Code
-  - [ ] Entity Framework
   - [ ] Logger - Log4Net
-  - [ ] Angular.js
   - [ ] Caching and Redis ?
-  - [ ] SQL Scripts
-  - [ ] Unit Tests
   - [ ] Moq
   - [ ] DI/ IOC -> Unity?
-- [ ] Performance Tests ?
+- [ ] SQL Server Local DB
+  - [ ] SQL Scripts
+  - [ ] Entity Framework
+- [X] Add Unit Test Project
+  - [ ] Write Unit Tests
+- [ ] Front-End Build Process ?
+  - [ ] Angular.js
+  - [ ] CSS Preprocessor
+  - [ ] JS minify and Bundle
+  - [ ] Twitter Bootstrap
 - [X] Static Code Analysis
   - Enabled [style cop analyzer](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/Configuration.md)
-- [X] Docker Scripts ?
-- [ ] Front-End Build Process ?
-- [ ] CSS Preprocessor
-- [ ] JS minify and Bundle
-- [ ] Twitter Bootstrap
-- [ ] SQL Server Local DB
+- [X] Deployments
+  - [X] Docker Scripts ?
+  - [ ] Scripts to deploy to Azure?
 - [X] Name Generator?
   - use this API https://uinames.com/api/?amount=25&region=united+states
-- [ ] Scripts to deploy to Azure?
+- [ ] Performance Tests ?
 - [ ] Usage Documentation
 - [ ] Tradeoffs
