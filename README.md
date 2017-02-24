@@ -29,6 +29,11 @@ CI Builds use [Travis CI](https://travis-ci.com/).  They are located here: [Peop
 
 Deployment Scripts are located here: [Docker deployment README](https://github.com/supermitsuba/PeopleSearch/tree/master/deployment/docker)
 
+Releases
+--------
+
+You might notice that with each feature there is a release created.  This should show how the project evolved with each new feature being added.
+
 Application Checklist
 ---------------------
 
@@ -60,5 +65,6 @@ Application Checklist
 - [X] Name Generator?
   - use this API https://uinames.com/api/?amount=25&region=united+states
 - [ ] Performance Tests ?
+- [X] Releases
 - [ ] Usage Documentation
 - [ ] Tradeoffs
