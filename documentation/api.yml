@@ -1,0 +1,93 @@
+swagger: '2.0'
+info:
+  title: People Search API
+  description: The application accepts search input in a text box and then displays in a pleasing style a list of people where any part of their first or last name matches what was typed in the search box (displaying at least name, address, age, interests, and a picture).  
+  version: "1.0.0"
+host: localhost:8000
+schemes:
+  - http
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /people:
+    post:
+        summary: Insert one person into the system
+        description: Used to generate 1 user.
+        parameters:
+          - name: body
+            in: body
+            description: a person
+            required: true
+            schema: 
+              $ref: '#/definitions/Person'
+        responses:
+          200:
+            description: A valid response
+    get:
+      summary: Get a list of people
+      description: Used to get multiple people
+      parameters:
+        - name: prefix
+          in: query
+          description: the prefix of a person's name you are looking for.
+          required: false
+          type: string
+        - name: limit
+          in: query
+          description: this is the maximum number of results to return
+          required: false
+          type: number
+          format: integer
+        - name: offset
+          in: query
+          description: the offset, or page of results you wanted
+          required: false
+          type: number
+          format: integer
+      responses:
+        200:
+          description: a description
+  /people/generate/{number}:
+    post:
+      summary: Insert multiple generated people into the system.
+      description: |
+        Used to generate upto 50 users at once.
+      parameters:
+        - name: number
+          in: path
+          description: Used to tell the service to generate n number of users.
+          required: true
+          type: number
+          format: integer
+      responses:
+        200:
+          description: A valid response
+definitions:
+  Person:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      address1:
+        type: string
+      address2:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      zip:
+        type: number
+        format: integer
+      age:
+        type: number
+        format: integer
+      interest:
+        type: array
+        items:
+          type: string
+      pictureUrl:
+        type: string

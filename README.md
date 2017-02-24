@@ -35,7 +35,7 @@ Application Checklist
 - [ ] API Documentation
 - [X] CI
   - Travis CI is working for .net CORE
-  - build.sh needs ```chmod a+x .travis-phing.sh``` to work properly
+  - build.sh needs ```chmod a+x build.sh``` to work properly
 - [ ] Code
   - [ ] Entity Framework
   - [ ] Logger - Log4Net
