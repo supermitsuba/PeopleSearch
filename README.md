@@ -53,6 +53,7 @@ Application Checklist
   - windows vs cross platform
   - xunit vs MSTest
   - Docker linux vs Docker windows
+  - Database vs In Memory
 - [ ] Front-End Build Process ?
   - [ ] Angular.js or JQuery?
   - [ ] CSS Preprocessor
