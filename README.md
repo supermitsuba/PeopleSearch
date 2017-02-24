@@ -55,6 +55,7 @@ Application Checklist
   - Docker linux vs Docker windows
   - Database vs In Memory
   - Distrubuted vs single machine
+  - SPA vs post-back 
 - [ ] Front-End Build Process ?
   - [ ] Angular.js or JQuery?
   - [ ] CSS Preprocessor
