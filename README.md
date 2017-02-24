@@ -42,16 +42,22 @@ Application Checklist
   - [ ] Caching and Redis ?
   - [ ] Moq
   - [ ] DI/ IOC -> Unity?
-- [ ] SQL Server Local DB
+- [ ] SQLite
   - [ ] SQL Scripts
   - [ ] Entity Framework
 - [ ] Performance Tests ?
 - [ ] Usage Documentation
 - [ ] Tradeoffs
+  - SQLite vs SQL Server
+  - ASP.net CORE vs .net Framework 4.6
+  - windows vs cross platform
+  - xunit vs MSTest
+  - Docker linux vs Docker windows
 - [ ] Front-End Build Process ?
-  - [ ] Angular.js
+  - [ ] Angular.js or JQuery?
   - [ ] CSS Preprocessor
   - [ ] JS minify and Bundle
+  - [ ] Unit Tests
   - [ ] Twitter Bootstrap
 - [X] Add Unit Test Project
   - [ ] Write Unit Tests
