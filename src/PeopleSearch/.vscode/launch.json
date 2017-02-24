@@ -2,25 +2,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (console)",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/<target-framework>/<project-name.dll>",
-            "args": [],
-            "cwd": "${workspaceRoot}",
-            "stopAtEntry": false,
-            "externalConsole": false
-        },
-        {
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/src/PeopleSearch/bin/Debug/<target-framework>/<project-name.dll>",
-            "args": [],
+            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.0/PeopleSearch.dll",
+            "args": ["--server.urls=http://localhost:8000/"],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
                 "enabled": true,
                 "args": "${auto-detect-url}",
