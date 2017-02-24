@@ -54,6 +54,7 @@ Application Checklist
   - xunit vs MSTest
   - Docker linux vs Docker windows
   - Database vs In Memory
+  - Distrubuted vs single machine
 - [ ] Front-End Build Process ?
   - [ ] Angular.js or JQuery?
   - [ ] CSS Preprocessor
