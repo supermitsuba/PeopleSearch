@@ -23,11 +23,14 @@ Please visit [localhost](http://localhost:8000/)
 
 API documentation is located here: [Swagger Documentation](https://github.com/supermitsuba/PeopleSearch/tree/master/documentation)
 
-SQL Scripts are located here: 
-
 CI Builds use [Travis CI](https://travis-ci.com/).  They are located here: [PeopleSearch CI](https://travis-ci.org/supermitsuba/PeopleSearch)
 
 Deployment Scripts are located here: [Docker deployment README](https://github.com/supermitsuba/PeopleSearch/tree/master/deployment/docker)
+
+Entity Setup : [Setup Guide](https://docs.microsoft.com/en-us/ef/core/get-started/netcore/new-db-sqlite)
+
+- Initialize a database: ```dotnet ef migrations add MyFirstMigration```
+- Update a database: ```dotnet ef database update```
 
 Releases
 --------
@@ -42,9 +45,6 @@ Application Checklist
   - [ ] Caching and Redis ?
   - [ ] Moq
   - [ ] DI/ IOC -> Unity?
-- [ ] SQLite
-  - [ ] SQL Scripts
-  - [ ] Entity Framework
 - [ ] Performance Tests ?
 - [ ] Usage Documentation
 - [ ] Tradeoffs
@@ -62,6 +62,9 @@ Application Checklist
   - [ ] JS minify and Bundle
   - [ ] Unit Tests
   - [ ] Twitter Bootstrap
+- [X] SQLite
+  - [ ] SQL Scripts
+  - [X] Entity Framework
 - [X] Add Unit Test Project
   - [ ] Write Unit Tests
 - [X] API Documentation
