@@ -7,7 +7,7 @@ namespace PeopleSearch.Controllers
     /// 
     /// </summary>
     [Route("[controller]")]
-    public class PersonController : Controller
+    public class PeopleController : Controller
     {
         /// <summary>
         /// 
