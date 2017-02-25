@@ -6,13 +6,14 @@ namespace PeopleSearch.Data
     /// <summary>
     /// 
     /// </summary>
-    public class PersonContext : DbContext
+    public class PersonSearchingContext : DbContext
     {
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         public DbSet<Person> People { get; set; }
+        public DbSet<Interest> Interests { get; set; }
 
         /// <summary>
         /// 
@@ -20,7 +21,7 @@ namespace PeopleSearch.Data
         /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Filename=./People.db");
+            optionsBuilder.UseSqlite("Filename=./PeopleSearch.db");
         }
     }
 }

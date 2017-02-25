@@ -4,6 +4,10 @@
     "debugType": "portable"
   },
     "dependencies": {
+       "PeopleSearch":{
+          "version": "1.0.0",
+          "target":"project"
+        },
         "System.Runtime.Serialization.Primitives": "4.3.0",
         "dotnet-test-xunit": "1.0.0-rc2-192208-24",
         "Microsoft.NETCore.App": {

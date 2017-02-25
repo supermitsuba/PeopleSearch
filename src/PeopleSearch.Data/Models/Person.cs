@@ -11,7 +11,7 @@ namespace PeopleSearch.Data.Models
         /// 
         /// </summary>
         /// <returns></returns>
-        public int Id { get; set; }
+        public int PersonId { get; set; }
 
         /// <summary>
         /// 
@@ -47,7 +47,7 @@ namespace PeopleSearch.Data.Models
         /// 
         /// </summary>
         /// <returns></returns>
-        public string State { get; set; }
+        public State AddressState { get; set; }
 
         /// <summary>
         /// 
@@ -60,6 +60,12 @@ namespace PeopleSearch.Data.Models
         /// </summary>
         /// <returns></returns>
         public int Age { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Interest> Interests { get; set; }
 
         /// <summary>
         /// 
