@@ -42,7 +42,7 @@
     "buildOptions": {
         "emitEntryPoint": true,
         "preserveCompilationContext": true,
-        "warningsAsErrors": true,
+        "warningsAsErrors": false,
         "additionalArguments": [ "/ruleset:Stylecop.PeopleSearch.ruleset", "/additionalfile:Stylecop.PeopleSearch.json" ],
         "xmlDoc": true
     },
