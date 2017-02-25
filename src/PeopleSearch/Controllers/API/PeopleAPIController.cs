@@ -13,7 +13,7 @@ namespace PeopleSearch.Controllers.API
         /// 
         /// </summary>
         /// <param name="number"></param>
-        /// <returns></returns> <summary>
+        /// <returns></returns>
         [HttpPost]
         [Route("v1/api/people/generate/{number}")]
         public IEnumerable<string> GenerateRandomPeople(int number)

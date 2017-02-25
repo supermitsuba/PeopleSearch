@@ -18,6 +18,5 @@ namespace PeopleSearch.Controllers
         {
             return View();
         }
-
     }
 }
