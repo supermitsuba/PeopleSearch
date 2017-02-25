@@ -81,5 +81,6 @@ Application Checklist
 - [X] Name Generator?
   - use this API https://uinames.com/api/?amount=25&region=united+states
 - [X] Releases
-~~- [ ] Performance Tests ?~~
+
+- [X] ~~Performance Tests ?~~
   - Not doing performance tests
