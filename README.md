@@ -80,7 +80,7 @@ Application Checklist
   - [ ] Scripts to deploy to Azure?
 - [X] Name Generator?
   - use this API https://uinames.com/api/?amount=25&region=united+states
-- [X] Releases
+- [X] Github Releases and tags
 
 - [X] ~~Performance Tests ?~~
   - Not doing performance tests
