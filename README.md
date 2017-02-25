@@ -45,6 +45,7 @@ Application Checklist
   - [ ] Caching and Redis ?
   - [ ] Moq
   - [ ] DI/ IOC -> Unity?
+  - [ ] Add production/dev environment
 - [ ] Performance Tests ?
 - [ ] Usage Documentation
 - [ ] Tradeoffs
@@ -56,12 +57,13 @@ Application Checklist
   - Database vs In Memory
   - Distrubuted vs single machine
   - SPA vs post-back 
-- [ ] Front-End Build Process ?
-  - [ ] Angular.js or JQuery?
+  - Using Front-end task manager like Grunt/Gulp/etc
+- [X] Front-End Build Process ?
+  - [X] Angular.js or JQuery?
   - [ ] CSS Preprocessor
   - [ ] JS minify and Bundle
   - [ ] Unit Tests
-  - [ ] Twitter Bootstrap
+  - [X] Twitter Bootstrap
 - [X] SQLite
   - [ ] SQL Scripts
   - [X] Entity Framework

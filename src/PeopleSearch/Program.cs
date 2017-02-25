@@ -23,7 +23,7 @@ namespace PeopleSearch
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseConfiguration(configuration)
-                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseContentRoot(Path.Combine(Directory.GetCurrentDirectory()))
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();

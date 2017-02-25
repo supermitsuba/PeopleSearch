@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace PeopleSearch.Controllers
+namespace PeopleSearch.Controllers.API
 {
     /// <summary>
     /// 
     /// </summary>
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class PersonController : Controller
     {
         /// <summary>
         /// 
