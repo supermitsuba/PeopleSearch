@@ -46,7 +46,6 @@ Application Checklist
   - [ ] Moq
   - [ ] DI/ IOC -> Unity?
   - [ ] Add production/dev environment
-- [ ] Performance Tests ?
 - [ ] Usage Documentation
 - [ ] Tradeoffs
   - SQLite vs SQL Server
@@ -82,4 +81,5 @@ Application Checklist
 - [X] Name Generator?
   - use this API https://uinames.com/api/?amount=25&region=united+states
 - [X] Releases
-
+~~- [ ] Performance Tests ?~~
+  - Not doing performance tests
