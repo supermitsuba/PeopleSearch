@@ -1,8 +1,41 @@
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Search For a Person";
     Layout = "_Layout";
 }
 
-<h2>Index</h2>
+<h2>Search For a Person Today!</h2>
 
-<p>Hello from our View Template!</p>
+<h3>Just type the first set of letters to get started.</h3>
+
+<form class="form-inline">
+  <div class="form-group">
+    <label for="searchPerson">Search: </label>
+    <input type="search" class="form-control" id="searchPerson" placeholder="type at least 3 letters">
+  </div>
+  <div class="form-group">
+    <input id="simulateDelay" type="checkbox" aria-label="">
+    <small><label for="simulateDelay">Simulate Delay</label></small>
+  </div>
+</form>
+<div style="min-height: 500px; height: 100%; visibility: hidden;" class="">
+    <table class="table table-striped table-responsive" >
+
+    </table>
+    <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</div>
