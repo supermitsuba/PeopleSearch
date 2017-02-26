@@ -137,18 +137,19 @@ namespace PeopleSearch.Controllers.API.V1
             }
 
             return query.Select(p => new PeopleSearch.Models.V1.Person()
-                    {
-                        FirstName = p.FirstName,
-                        LastName = p.LastName,
-                        Address1 = p.Address1,
-                        Address2 = p.Address2,
-                        Zip = p.Zip,
-                        City = p.City,
-                        Age = p.Age,
-                        PictureUrl = p.PictureUrl,
-                        Interests = p.Interests.Select(r => r.Category),
-                        AddressState = p.AddressState.ToString()  
-                    }).ToList();
+            {
+                FirstName = p.FirstName,
+                LastName = p.LastName,
+                Address1 = p.Address1,
+                Address2 = p.Address2,
+                Zip = p.Zip,
+                City = p.City,
+                Age = p.Age,
+                PictureUrl = p.PictureUrl,
+                Interests = p.Interests.Select(r => r.Category),
+                AddressState = p.AddressState.ToString()  
+            }).ToList();
+                
         }
     }
 }
