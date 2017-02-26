@@ -66,7 +66,7 @@ namespace PeopleSearch
             app.UseStaticFiles(new StaticFileOptions()
             {
                 FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(), @"content")),
+                    Path.Combine(Directory.GetCurrentDirectory(), @"Content")),
                 RequestPath = new PathString("/content")
             });
 
