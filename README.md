@@ -70,6 +70,7 @@ Application Checklist
   - [ ] Write Unit Tests
 - [X] API Documentation
   - This is at [Swagger documentation](https://github.com/supermitsuba/PeopleSearch/tree/master/documentation)
+  - There is also a postman script to help with calling the APIs.
 - [X] CI
   - Travis CI is working for .net CORE
   - build.sh needs ```chmod a+x build.sh``` to work properly
