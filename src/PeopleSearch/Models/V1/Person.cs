@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace PeopleSearch.Models 
+namespace PeopleSearch.Models.V1
 {
     /// <summary>
     /// 

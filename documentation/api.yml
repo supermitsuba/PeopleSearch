@@ -10,7 +10,7 @@ basePath: /v1
 produces:
   - application/json
 paths:
-  /people:
+  /v1/api/people:
     post:
         summary: Insert one person into the system
         description: Used to generate 1 user.
@@ -33,6 +33,12 @@ paths:
           description: the prefix of a person's name you are looking for.
           required: false
           type: string
+        - name: delay
+          in: query
+          description: the number of seconds to delay the request.
+          required: false
+          type: number
+          format: integer
         - name: limit
           in: query
           description: this is the maximum number of results to return
@@ -48,7 +54,7 @@ paths:
       responses:
         200:
           description: a description
-  /people/generate/{number}:
+  /v1/api/people/generate/{number}:
     post:
       summary: Insert multiple generated people into the system.
       description: |
