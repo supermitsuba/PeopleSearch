@@ -1,35 +1,38 @@
-using System.Collections.Generic;
+using Newtonsoft.Json;
 
-namespace PeopleSearch.Data.Models 
+namespace PeopleSearch.Models.V1
 {
     /// <summary>
     /// 
     /// </summary>   
-    public class Interest
+    public class NameApiResult
     {
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public string category { get; set; }
-
-        /// <summary>
-        /// /// 
-        /// </summary>
-        /// <returns></returns>
-        public string InterestId { get; set; }
+        [JsonProperty("name")]
+        public string FirstName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public int PersonId { get; set; }
+        [JsonProperty("surname")]
+        public string LastName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public Person Person { get; set; }
-        
+        [JsonProperty("gender")]
+        public string Sex { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [JsonProperty("region")]
+        public string Region { get; set; }
     }
 }

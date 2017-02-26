@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using PeopleSearch.Data;
 using PeopleSearch.Data.Models;
 
-namespace PeopleSearch.Data.Migrations
+namespace PeopleSearch.Migrations
 {
     [DbContext(typeof(PersonSearchingContext))]
     partial class PersonSearchingContextModelSnapshot : ModelSnapshot
@@ -21,9 +21,9 @@ namespace PeopleSearch.Data.Migrations
                     b.Property<string>("InterestId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("PersonId");
+                    b.Property<string>("Category");
 
-                    b.Property<string>("category");
+                    b.Property<int>("PersonId");
 
                     b.HasKey("InterestId");
 

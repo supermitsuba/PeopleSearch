@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using PeopleSearch.Data;
 using PeopleSearch.Data.Models;
 
-namespace PeopleSearch.Data.Migrations
+namespace PeopleSearch.Migrations
 {
     [DbContext(typeof(PersonSearchingContext))]
-    [Migration("20170225201745_MyFirstMigration")]
-    partial class MyFirstMigration
+    [Migration("20170226050518_PeopleSearch")]
+    partial class PeopleSearch
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,9 +22,9 @@ namespace PeopleSearch.Data.Migrations
                     b.Property<string>("InterestId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("PersonId");
+                    b.Property<string>("Category");
 
-                    b.Property<string>("category");
+                    b.Property<int>("PersonId");
 
                     b.HasKey("InterestId");
 

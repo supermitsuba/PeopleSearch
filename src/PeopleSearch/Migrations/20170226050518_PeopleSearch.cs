@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace PeopleSearch.Data.Migrations
+namespace PeopleSearch.Migrations
 {
-    public partial class MyFirstMigration : Migration
+    public partial class PeopleSearch : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,8 +34,8 @@ namespace PeopleSearch.Data.Migrations
                 columns: table => new
                 {
                     InterestId = table.Column<string>(nullable: false),
-                    PersonId = table.Column<int>(nullable: false),
-                    category = table.Column<string>(nullable: true)
+                    Category = table.Column<string>(nullable: true),
+                    PersonId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
