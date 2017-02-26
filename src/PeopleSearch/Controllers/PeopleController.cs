@@ -16,6 +16,8 @@ namespace PeopleSearch.Controllers
         [Route("[controller]")]
         public IActionResult Index()
         {
+            ViewData["SearchPage"] = true;
+            
             return View();
         }
 
@@ -27,6 +29,19 @@ namespace PeopleSearch.Controllers
         [Route("[controller]/create")]
         public IActionResult Create()
         {
+            ViewData["CreatePage"] = true;
+            return View();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns> <summary>
+        [HttpGet]
+        [Route("[controller]/import")]
+        public IActionResult Import()
+        {
+            ViewData["ImportPage"] = true;
             return View();
         }
     }
