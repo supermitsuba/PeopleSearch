@@ -13,7 +13,7 @@
 - Use Entity Framework Code First to talk to the database
 - Unit Tests for appropriate parts of the application
 
-## Quick Links
+### Quick Links
 
 Please visit [localhost](http://localhost:8000/)
 
@@ -28,8 +28,7 @@ Entity Setup : [Setup Guide](https://docs.microsoft.com/en-us/ef/core/get-starte
 - Initialize a database: ```dotnet ef migrations add MyFirstMigration```
 - Update a database: ```dotnet ef database update```
 
-Releases
---------
+### Releases
 
 You might notice that with each feature there is a release created.  This should show how the project evolved with each new feature being added.
 
