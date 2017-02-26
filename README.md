@@ -1,23 +1,19 @@
-The People Search Application ![](https://travis-ci.org/supermitsuba/PeopleSearch.svg?branch=master)
-====================================================================================================
+#The People Search Application ![](https://travis-ci.org/supermitsuba/PeopleSearch.svg?branch=master)
 
-Business Requirements
----------------------
+## Business Requirements
 
 - The application accepts search input in a text box and then displays in a pleasing style a list of people where any part of their first or last name matches what was typed in the search box (displaying at least name, address, age, interests, and a picture). 
 - Solution should either seed data or provide a way to enter new users or both
 - Simulate search being slow and have the UI gracefully handle the delay
 
-Technical Requirements
-----------------------
+### Technical Requirements
 
 - An ASP.NET MVC Application 
 - Use Ajax to respond to search request (no full page refresh) using JSON for both the request and the response
 - Use Entity Framework Code First to talk to the database
 - Unit Tests for appropriate parts of the application
 
-Quick Links
------------
+### Quick Links
 
 Please visit [localhost](http://localhost:8000/)
 
@@ -32,15 +28,14 @@ Entity Setup : [Setup Guide](https://docs.microsoft.com/en-us/ef/core/get-starte
 - Initialize a database: ```dotnet ef migrations add MyFirstMigration```
 - Update a database: ```dotnet ef database update```
 
-Releases
---------
+### Releases
 
 You might notice that with each feature there is a release created.  This should show how the project evolved with each new feature being added.
 
-Application Checklist
----------------------
+## Application Checklist
 
 - [ ] Code
+  - [ ] Shrink Images
   - [ ] Logger - Log4Net
   - [ ] Caching and Redis ?
   - [ ] Moq
