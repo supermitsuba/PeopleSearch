@@ -1,3 +1,4 @@
+@model PeopleSearch.Models.V1.ImportViewModel
 @{
     ViewData["Title"] = "Import...";
     Layout = "_Layout";
@@ -5,5 +6,17 @@
 
 <h2>Import a Person's Profile!</h2>
 
-<div style="min-height: 500px; height: 100%;">
+<h3>This will bulk import a bunch of users.  Just specify then number below.</h3>
+
+<div style="min-height: 500px; max-width:600px; height: 100%;">
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.NumberOfUsers, new { @class="col-md-3 control-label" })
+        @Html.EditorFor(x => x.NumberOfUsers, new { @class="form-control", placeholder="pictureUrl" })
+        @Html.ValidationMessageFor(x => x.NumberOfUsers, null, new { @class="text-danger"} )
+    </div>
+
+    <input type="submit" class="btn btn-default" value="import" />
+}
 </div>

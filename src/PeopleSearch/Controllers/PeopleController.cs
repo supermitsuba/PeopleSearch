@@ -33,6 +33,18 @@ namespace PeopleSearch.Controllers
             return View();
         }
 
+        [HttpPost]
+        [Route("[controller]/create")]
+        public IActionResult Create(Models.V1.Person person)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(person);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -43,6 +55,18 @@ namespace PeopleSearch.Controllers
         {
             ViewData["ImportPage"] = true;
             return View();
+        }
+
+        [HttpPost]
+        [Route("[controller]/import")]
+        public IActionResult Import(Models.V1.ImportViewModel person)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(person);
         }
     }
 }

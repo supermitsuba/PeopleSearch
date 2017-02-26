@@ -49,7 +49,7 @@ namespace PeopleSearch
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            services.AddMvc();
+            services.AddMvc(options => options.MaxModelValidationErrors = 50);
         }
 
         /// <summary>

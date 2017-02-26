@@ -1,9 +1,60 @@
-@{
-    ViewData["Title"] = "Create...";
-    Layout = "_Layout";
-}
+@model PeopleSearch.Models.V1.Person
+@{ ViewData["Title"] = "Create..."; Layout = "_Layout"; }
 
 <h2>Create a Person's Profile!</h2>
 
-<div style="min-height: 500px; height: 100%;">
+<div style="min-height: 500px; max-width:600px; height: 100%;">
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.FirstName, new { @class="col-md-3 control-label" })
+                @Html.EditorFor(x => x.FirstName, new { @class="form-control", placeholder="pictureUrl" })
+                @Html.ValidationMessageFor(x => x.FirstName, null, new { @class="text-danger"} )
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.LastName, new { @class="col-md-3 control-label" })
+            @Html.EditorFor(x => x.LastName, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.ValidationMessageFor(x => x.LastName, null, new { @class="text-danger"} )
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Address1, new { @class="col-md-3 control-label" })
+            @Html.EditorFor(x => x.Address1, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.ValidationMessageFor(x => x.Address1, null, new { @class="text-danger"} )
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Address2, new { @class="col-md-3 control-label" })
+            @Html.EditorFor(x => x.Address2, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.ValidationMessageFor(x => x.Address2, null, new { @class="text-danger"} )
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.City, new { @class="col-md-3 control-label" })
+            @Html.EditorFor(x => x.City, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.ValidationMessageFor(x => x.City, null, new { @class="text-danger"} )
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.AddressState, new { @class="col-md-3 control-label" })
+            @Html.EditorFor(x => x.AddressState, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.ValidationMessageFor(x => x.AddressState, null, new { @class="text-danger"} )
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Zip, new { @class="col-md-3 control-label" })
+            @Html.EditorFor(x => x.Zip, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.ValidationMessageFor(x => x.Zip, null, new { @class="text-danger"} )
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Age, new { @class="col-md-3 control-label" })
+            @Html.EditorFor(x => x.Age, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.ValidationMessageFor(x => x.Age, null, new { @class="text-danger"} )
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.PictureUrl, new { @class="col-md-3 control-label" })
+            @Html.EditorFor(x => x.PictureUrl, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.ValidationMessageFor(x => x.PictureUrl, null, new { @class="text-danger"} )
+        </div>
+
+        <input type="submit" class="btn btn-default" value="create" />
+    }
 </div>
