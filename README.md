@@ -41,6 +41,7 @@ Application Checklist
 ---------------------
 
 - [ ] Code
+  - [ ] Shrink Images
   - [ ] Logger - Log4Net
   - [ ] Caching and Redis ?
   - [ ] Moq
