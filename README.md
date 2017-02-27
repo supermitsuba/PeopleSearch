@@ -15,7 +15,7 @@
 
 ### Quick Links
 
-Please visit [localhost](http://localhost:8000/)
+Please visit [localhost](http://localhost:8000/people)
 
 API documentation is located here: [Swagger Documentation](https://github.com/supermitsuba/PeopleSearch/tree/master/documentation)
 
@@ -40,7 +40,8 @@ You might notice that with each feature there is a release created.  This should
   - [X] Caching and Redis ?
   - [ ] Moq
   - [X] DI/ IOC -> Unity?
-  - [ ] Add production/dev environment
+  - [X] Add production/dev environment
+  - [ ] Add logging
   - [ ] Return Error Codes
 - [ ] Usage Documentation
 - [ ] Tradeoffs

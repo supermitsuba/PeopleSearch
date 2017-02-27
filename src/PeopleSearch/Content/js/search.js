@@ -2,6 +2,11 @@ $(function(){
     var page = 0;
     var searchTerm = ''
 
+    /*
+    The purpose of this function is to intercept which key is pressed.
+
+    If a key is pressed, this function will want 2 seconds before executing the API call.
+    */
     $('#searchPerson').keypress(function(event){
         var length = this.value.length
         searchTerm = this.value + event.key
@@ -19,6 +24,9 @@ $(function(){
         }, 2000)
     })
 
+    /*
+    The purpose of this function is to go to the next page of search results.
+    */
     $('#nextPage').click(function(){
         page += 1
         var delaySeconds = document.getElementById('simulateDelay').checked ? 5 : 0;
@@ -30,6 +38,9 @@ $(function(){
         })
     })
 
+    /*
+    The purpose of this function is to go to the previous page of search results.
+    */
     $('#previousPage').click(function(){
         page -= 1
         var delaySeconds = document.getElementById('simulateDelay').checked ? 5 : 0;
@@ -41,6 +52,11 @@ $(function(){
         })
     })
 
+    /*
+    The purpose of this function is to take the results of the search API call and populate a table.
+
+    This will also show and hide elements.
+    */
     function peopleSearch(data) {
         $('#loading').css('visibility', 'hidden')
         $('#results').css('visibility', 'visible')
@@ -74,6 +90,9 @@ $(function(){
         }
     }
 
+    /*
+    The purpose of this function is to delay the execution of a function, until the user has stopped calling it.
+    */
     var delay = (function(){
         var timer = 0
         return function(callback, ms){

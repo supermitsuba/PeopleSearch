@@ -6,7 +6,7 @@ using PeopleSearch.Settings;
 namespace PeopleSearch.Controllers
 {
     /// <summary>
-    /// 
+    /// The purpose of this controller is to provide an MVC interface to people.
     /// </summary>
     public class PeopleController : Controller
     {
@@ -30,9 +30,10 @@ namespace PeopleSearch.Controllers
         }
 
         /// <summary>
-        /// 
+        /// The link: http://localhost:8000/people
+        /// Used to show the initial search page.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>returns the view for search.</returns>
         [HttpGet]
         [Route("[controller]")]
         public IActionResult Index()
@@ -43,9 +44,10 @@ namespace PeopleSearch.Controllers
         }
 
         /// <summary>
-        /// 
+        /// The link: http://localhost:8000/people/create
+        /// Used to show the create form page.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>returns the view of the create form.</returns>
         [HttpGet]
         [Route("[controller]/create")]
         public IActionResult Create()
@@ -55,10 +57,11 @@ namespace PeopleSearch.Controllers
         }
 
         /// <summary>
-        /// 
+        /// The link: http://localhost:8000/people/create
+        /// Used to post a new paramref name="person".
         /// </summary>
-        /// <param name="person"></param>
-        /// <returns></returns>
+        /// <param name="person">The person to create.</param>
+        /// <returns>Returns the user to search page if successful.</returns>
         [HttpPost]
         [Route("[controller]/create")]
         public IActionResult Create(Models.V1.Person person)
@@ -73,9 +76,10 @@ namespace PeopleSearch.Controllers
         }
 
         /// <summary>
-        /// 
+        /// The link: http://localhost:8000/people/import
+        /// A page to import multple people profiles
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns a view of the import page.</returns>
         [HttpGet]
         [Route("[controller]/import")]
         public IActionResult Import()
@@ -85,21 +89,22 @@ namespace PeopleSearch.Controllers
         }
 
         /// <summary>
-        /// 
+        /// The link: http://localhost:8000/people/import
+        /// A route to post multiple people.
         /// </summary>
-        /// <param name="person"></param>
-        /// <returns></returns>
+        /// <param name="importViewModel">All the import settings to use for creating a user.</param>
+        /// <returns>This will redirect to Search page.</returns>
         [HttpPost]
         [Route("[controller]/import")]
-        public IActionResult Import(Models.V1.ImportViewModel person)
+        public IActionResult Import(Models.V1.ImportViewModel importViewModel)
         {
             if (ModelState.IsValid)
             {
-                handler.GenerateUsers(person.NumberOfUsers);
+                handler.GenerateUsers(importViewModel.NumberOfUsers);
                 return RedirectToAction("Index");
             }
 
-            return View(person);
+            return View(importViewModel);
         }
     }
 }
