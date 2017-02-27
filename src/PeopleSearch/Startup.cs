@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using PeopleSearch.Data;
 
 namespace PeopleSearch
@@ -49,14 +50,21 @@ namespace PeopleSearch
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            var appSettings = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettings);
+
+            var connection = Configuration["Data:SqliteConnectionString"];
+            services.AddDbContext<PeopleSearch.Data.PersonSearchingContext>( options => options.UseSqlite(connection));
+
+
             services.AddMemoryCache();
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
             
             // added chain of responsibility to DI framework
             services.AddTransient<DataHandler, TrieHandler>((sp) => {
-                var result = new TrieHandler(sp.GetService<IMemoryCache>());
-                result.SetSuccessor(new DatabaseHandler());
+                var result = new TrieHandler(sp.GetService<IMemoryCache>(), sp.GetService<PersonSearchingContext>());
+                result.SetSuccessor(new DatabaseHandler(sp.GetService<PersonSearchingContext>()));
                 return result;
             });
             

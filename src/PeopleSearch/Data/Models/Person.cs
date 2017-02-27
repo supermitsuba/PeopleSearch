@@ -77,17 +77,5 @@ namespace PeopleSearch.Data.Models
         /// </summary>
         /// <returns></returns>
         public string PictureUrl { get; set; }
-
-        public static int Count()
-        {
-            var db = new PersonSearchingContext();
-            return db.People.Count();
-        }
-
-        public static IEnumerable<Person> GetAllUsers()
-        {
-            var db = new PeopleSearch.Data.PersonSearchingContext();
-            return db.People.ToList();
-        }
     }
 }

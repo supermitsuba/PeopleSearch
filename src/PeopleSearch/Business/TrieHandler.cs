@@ -5,18 +5,24 @@ using System.Linq;
 using DataStructures;
 using Microsoft.Extensions.Caching.Memory;
 using PeopleSearch;
+using PeopleSearch.Data;
 using PeopleSearch.Data.Models;
 
 public class TrieHandler : DataHandler
 {
     private Trie<char, Person> allPeople;
     private IMemoryCache cache;
+    private readonly PersonSearchingContext db;
 
-    public TrieHandler(IMemoryCache cache)
+    public TrieHandler(IMemoryCache cache, PersonSearchingContext db)
     {
         this.cache = cache;
+        this.db = db;
 
-        if (PeopleSearch.Data.Models.Person.Count() > 100000)
+        var countTask = db.Count();
+        countTask.Wait();
+
+        if (countTask.Result > 100000)
         {
             allPeople = null;
         }
@@ -31,7 +37,10 @@ public class TrieHandler : DataHandler
         if (!cache.TryGetValue("Trie", out allPeople))
         {            
             allPeople = new DataStructures.Trie<char, Person>();
-            foreach (var p in Person.GetAllUsers())
+            var allUserTask = db.GetAllUsers();
+            allUserTask.Wait();
+
+            foreach (var p in allUserTask.Result)
             {
                 allPeople.Add(p.FirstName.ToLower(), p);
                 allPeople.Add(p.LastName.ToLower(), p);

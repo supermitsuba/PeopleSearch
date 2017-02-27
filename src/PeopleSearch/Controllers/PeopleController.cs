@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Options;
 using PeopleSearch.Models.V1;
 
 namespace PeopleSearch.Controllers
@@ -15,12 +16,15 @@ namespace PeopleSearch.Controllers
     {
         private readonly DataHandler handler;
 
+        private readonly AppSettings appSettings;
+
         private readonly IMemoryCache cache;
 
-        public PeopleController(IMemoryCache cache, DataHandler handler)
+        public PeopleController(IMemoryCache cache, DataHandler handler, IOptions<AppSettings> appSettings)
         {
+            this.appSettings = appSettings.Value;
             this.cache = cache;
-            this.handler = handler;            
+            this.handler = handler;           
         }
 
         /// <summary>

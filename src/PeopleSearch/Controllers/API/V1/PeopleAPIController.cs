@@ -15,18 +15,15 @@ namespace PeopleSearch.Controllers.API.V1
     {
         private readonly ILogger logger;
         private readonly DataHandler handler;
-        private readonly IMemoryCache cache;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="logger"></param>
-        public PeopleAPIController(ILogger<PeopleAPIController> logger, IMemoryCache cache)
+        public PeopleAPIController(ILogger<PeopleAPIController> logger, DataHandler handler)
         {
             this.logger = logger;
-            this.cache = cache;
-            this.handler = new TrieHandler(cache);
-            handler.SetSuccessor(new DatabaseHandler());
+            this.handler = handler;
         }
 
         /// <summary>

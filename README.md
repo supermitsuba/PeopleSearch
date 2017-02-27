@@ -36,11 +36,12 @@ You might notice that with each feature there is a release created.  This should
 
 - [ ] Code
   - [ ] Shrink Images
-  - [ ] Logger - Log4Net
-  - [ ] Caching and Redis ?
+  - [X] Logger - Log4Net
+  - [X] Caching and Redis ?
   - [ ] Moq
-  - [ ] DI/ IOC -> Unity?
+  - [X] DI/ IOC -> Unity?
   - [ ] Add production/dev environment
+  - [ ] Return Error Codes
 - [ ] Usage Documentation
 - [ ] Tradeoffs
   - SQLite vs SQL Server

@@ -9,16 +9,17 @@ using PeopleSearch.Data.Models;
 
 public class DatabaseHandler : DataHandler
 {
-    public DatabaseHandler()
-    {
+    private readonly PersonSearchingContext db;
 
+    public DatabaseHandler(PersonSearchingContext context)
+    {
+        this.db = context;
     }
 
     public override IEnumerable<PeopleSearch.Models.V1.Person> GetAllUsers(PeopleSearch.Models.V1.PersonQueryParameter parameters)
     {
         try
         {
-            var db = new PeopleSearch.Data.PersonSearchingContext();
             var query = db.People.AsQueryable();
             if (!string.IsNullOrEmpty(parameters.Prefix))
             {
@@ -73,8 +74,6 @@ public class DatabaseHandler : DataHandler
     {
         try
         {
-            var db = new PersonSearchingContext();
-
             var newPerson = new PeopleSearch.Data.Models.Person()
             {
                 FirstName = person.FirstName,
@@ -109,7 +108,6 @@ public class DatabaseHandler : DataHandler
         {
             var names = new List<PeopleSearch.Models.V1.NameApiResult>();
             var people = new List<PeopleSearch.Data.Models.Person>();
-            var db = new PeopleSearch.Data.PersonSearchingContext();
 
             using (var client = new HttpClient())
             {
