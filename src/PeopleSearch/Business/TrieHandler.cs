@@ -9,7 +9,7 @@ using PeopleSearch.Data;
 using PeopleSearch.Data.Models;
 
 /// <summary>
-/// 
+/// This class is to take a list of persons and make it faster to look them up.  A Trie is a tree like structure that makes a search as fast as O(searchTerm).
 /// </summary>
 public class TrieHandler : DataHandler
 {
@@ -18,10 +18,10 @@ public class TrieHandler : DataHandler
     private readonly PersonSearchingContext db;
 
     /// <summary>
-    /// 
+    /// This initializes the TrieHandler class
     /// </summary>
-    /// <param name="cache"></param>
-    /// <param name="db"></param>
+    /// <param name="cache">This is for caching the Trie for further use.</param>
+    /// <param name="db">This is for looking up the database to see if it is more efficient to use the database instead.</param>
     public TrieHandler(IMemoryCache cache, PersonSearchingContext db)
     {
         this.cache = cache;
@@ -42,28 +42,28 @@ public class TrieHandler : DataHandler
 
     private void GetTrieCache()
     {
-        if (!cache.TryGetValue("Trie", out allPeople))
+        if (!cache.TryGetValue("Trie", out allPeople)) //see if there is not a Trie
         {            
             allPeople = new DataStructures.Trie<char, Person>();
-            var allUserTask = db.GetAllUsers();
+            var allUserTask = db.GetAllUsers(); // get a list of all users.
             allUserTask.Wait();
 
-            foreach (var p in allUserTask.Result)
+            foreach (var p in allUserTask.Result) // add all users to the Trie
             {
                 allPeople.Add(p.FirstName.ToLower(), p);
                 allPeople.Add(p.LastName.ToLower(), p);
             }
 
             var cacheEntryOptions = new MemoryCacheEntryOptions();
-            cache.Set("Trie", allPeople);
+            cache.Set("Trie", allPeople); // save Trie to cache
         }
     }
 
     /// <summary>
-    /// 
+    /// Gets all users matching the paramref name="parameters"
     /// </summary>
-    /// <param name="parameters"></param>
-    /// <returns></returns>
+    /// <param name="parameters">This contains the prefix</param>
+    /// <returns>Returns a list of all users where the first or last name matches the search term.</returns>
     public override IEnumerable<PeopleSearch.Models.V1.Person> GetAllUsers(PeopleSearch.Models.V1.PersonQueryParameter parameters)
     {
         if (successor == null) throw new NullReferenceException("There is no Successor to complete the request.");
@@ -113,10 +113,10 @@ public class TrieHandler : DataHandler
     }
 
     /// <summary>
-    /// 
+    /// Saves the MVC user into the Trie
     /// </summary>
-    /// <param name="person"></param>
-    /// <returns></returns>
+    /// <param name="person">an MVC person</param>
+    /// <returns>returns the user that was saved from the successor</returns>
     public override PeopleSearch.Data.Models.Person SavePerson(PeopleSearch.Models.V1.Person person)
     {
         if (successor == null) 
@@ -138,10 +138,10 @@ public class TrieHandler : DataHandler
     }
 
     /// <summary>
-    /// 
+    /// Generates a set of users and stores them in the Trie
     /// </summary>
-    /// <param name="number"></param>
-    /// <returns></returns>
+    /// <param name="number">Number of users to store in the trie</param>
+    /// <returns>A list of users saved into the database and Trie</returns>
     public override IEnumerable<PeopleSearch.Data.Models.Person> GenerateUsers(int number)
     {
         if (successor == null) 

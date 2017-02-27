@@ -17,18 +17,18 @@ namespace PeopleSearch.Data
         public PersonSearchingContext(DbContextOptions<PersonSearchingContext> options) 
             : base(options)
         { 
-            
+
         }
 
         /// <summary>
-        /// 
+        /// The only table, People, which is used to search people and their information.
         /// </summary>
         /// <returns></returns>
         public DbSet<Person> People { get; set; }
 
 
         /// <summary>
-        /// 
+        /// Count is used to see how many people are in the database.
         /// </summary>
         /// <returns></returns>
         public async Task<int> Count()
@@ -37,7 +37,7 @@ namespace PeopleSearch.Data
         }
 
         /// <summary>
-        /// 
+        /// This is a list of all people in the database.
         /// </summary>
         /// <returns></returns>
         public async Task<IEnumerable<Person>> GetAllUsers()

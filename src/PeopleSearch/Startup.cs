@@ -50,9 +50,11 @@ namespace PeopleSearch
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            //Add application settings
             var appSettings = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettings);
 
+            // Add database context object
             var connection = Configuration["Data:SqliteConnectionString"];
             services.AddDbContext<PeopleSearch.Data.PersonSearchingContext>( options => options.UseSqlite(connection));
 
@@ -89,13 +91,7 @@ namespace PeopleSearch
                     Path.Combine(Directory.GetCurrentDirectory(), @"Content")),
                 RequestPath = new PathString("/content")
             });
-
-            /*
-             app.UseApplicationInsightsRequestTelemetry();
-
-             app.UseApplicationInsightsExceptionTelemetry();
-            */
-
+            
             app.UseMvc();
         }
     }

@@ -6,12 +6,12 @@ using Microsoft.Extensions.Configuration;
 namespace PeopleSearch
 {
     /// <summary>
-    /// S
+    /// The entry point class
     /// </summary>
     public class Program
     {
         /// <summary>
-        /// S
+        /// The entry point for Program
         /// </summary>
         /// <param name="args"></param>
         public static void Main(string[] args) 
