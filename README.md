@@ -38,6 +38,7 @@ You might notice that with each feature there is a release created.  This should
   - [ ] Shrink Images
   - [X] Logger - Log4Net
   - [X] Caching and Redis ?
+  - [ ] Complete mass import call
   - [ ] Moq
   - [X] DI/ IOC -> Unity?
   - [X] Add production/dev environment
