@@ -41,7 +41,7 @@ namespace PeopleSearch.Controllers.API.V1
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://uinames.com/");
-                var results = await client.GetStringAsync("api/?amount=5&region=united+states");
+                var results = await client.GetStringAsync("api/?amount="+number+"&region=united+states");
                 names = Newtonsoft.Json.JsonConvert.DeserializeObject<List<NameApiResult>>(results);
             }
 

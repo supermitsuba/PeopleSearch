@@ -1,6 +1,6 @@
 $(function(){
     var page = 0;
-    
+
     $('#searchPerson').keypress(function(event){
         var length = this.value.length
         var searchTerm = this.value + event.key
@@ -20,7 +20,20 @@ $(function(){
 
     function peopleSearch(data) {
         console.log(data)
-            $('#loading').css('visibility', 'hidden')
+        $('#loading').css('visibility', 'hidden')
+        $('#results').css('visibility', 'visible')
+        $('#resultsTable tbody tr').remove()
+
+        for(var i = 0; i < data.length; i++) {
+            var row = '<tr><td>'+ data[i].firstName
+                +'</td><td>'+ data[i].lastName
+                +'</td><td>'+ data[i].address1 + ' ' + data[i].city + ', ' + data[i].addressState + ' ' + data[i].zip
+                +'</td><td>'+ data[i].age
+                +'</td><td>'+ '...'
+                +'</td><td><img src="'+ data[i].pictureUrl 
+                +'" style="width:50px;height:50px;" /></td></tr>'
+            $('#resultsTable tbody').append(row);
+        }
     }
 
     var delay = (function(){
