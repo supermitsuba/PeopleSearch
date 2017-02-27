@@ -55,7 +55,8 @@ namespace PeopleSearch.Controllers
                     Zip = person.Zip,
                     City = person.City,
                     Age = person.Age,
-                    PictureUrl = person.PictureUrl
+                    PictureUrl = person.PictureUrl,
+                    Interests = person.Interests
                     // TODO: add Interest conversion function
                 };
                 

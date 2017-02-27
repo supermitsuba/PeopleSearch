@@ -8,46 +8,51 @@
     {
         <div class="form-group">
             @Html.LabelFor(x => x.FirstName, new { @class="col-md-3 control-label" })
-                @Html.EditorFor(x => x.FirstName, new { @class="form-control", placeholder="pictureUrl" })
+                @Html.EditorFor(x => x.FirstName, new { @class="form-control", placeholder="first name" })
                 @Html.ValidationMessageFor(x => x.FirstName, null, new { @class="text-danger"} )
         </div>
 
         <div class="form-group">
             @Html.LabelFor(x => x.LastName, new { @class="col-md-3 control-label" })
-            @Html.EditorFor(x => x.LastName, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.EditorFor(x => x.LastName, new { @class="form-control", placeholder="last name" })
             @Html.ValidationMessageFor(x => x.LastName, null, new { @class="text-danger"} )
         </div>
 
         <div class="form-group">
             @Html.LabelFor(x => x.Address1, new { @class="col-md-3 control-label" })
-            @Html.EditorFor(x => x.Address1, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.EditorFor(x => x.Address1, new { @class="form-control", placeholder="address 1" })
             @Html.ValidationMessageFor(x => x.Address1, null, new { @class="text-danger"} )
         </div>
 
         <div class="form-group">
             @Html.LabelFor(x => x.Address2, new { @class="col-md-3 control-label" })
-            @Html.EditorFor(x => x.Address2, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.EditorFor(x => x.Address2, new { @class="form-control", placeholder="address 2" })
             @Html.ValidationMessageFor(x => x.Address2, null, new { @class="text-danger"} )
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.City, new { @class="col-md-3 control-label" })
-            @Html.EditorFor(x => x.City, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.EditorFor(x => x.City, new { @class="form-control", placeholder="city" })
             @Html.ValidationMessageFor(x => x.City, null, new { @class="text-danger"} )
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.AddressState, new { @class="col-md-3 control-label" })
-            @Html.EditorFor(x => x.AddressState, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.EditorFor(x => x.AddressState, new { @class="form-control", placeholder="state" })
             @Html.ValidationMessageFor(x => x.AddressState, null, new { @class="text-danger"} )
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.Zip, new { @class="col-md-3 control-label" })
-            @Html.EditorFor(x => x.Zip, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.EditorFor(x => x.Zip, new { @class="form-control", placeholder="zip" })
             @Html.ValidationMessageFor(x => x.Zip, null, new { @class="text-danger"} )
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.Age, new { @class="col-md-3 control-label" })
-            @Html.EditorFor(x => x.Age, new { @class="form-control", placeholder="pictureUrl" })
+            @Html.EditorFor(x => x.Age, new { @class="form-control", placeholder="age" })
             @Html.ValidationMessageFor(x => x.Age, null, new { @class="text-danger"} )
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Interests, new { @class="col-md-3 control-label" })
+            @Html.EditorFor(x => x.Interests, new { @class="form-control", placeholder="Interests" })
+            @Html.ValidationMessageFor(x => x.Interests, null, new { @class="text-danger"} )
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.PictureUrl, new { @class="col-md-3 control-label" })

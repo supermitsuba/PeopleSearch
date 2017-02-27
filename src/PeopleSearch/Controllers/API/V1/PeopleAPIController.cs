@@ -118,22 +118,25 @@ namespace PeopleSearch.Controllers.API.V1
                 query = query.Where (p => p.FirstName.ToLower().StartsWith(parameters.Prefix) || p.LastName.ToLower().StartsWith(parameters.Prefix));
             }
 
-            if (parameters.Offset > -1) 
-            {
-                query = query.Skip (parameters.Offset);
-            }
-            else
-            {
-                query = query.Skip (Constants.DEFAULT_OFFSET);
-            }
-
+            var limit = 0;
             if (parameters.Limit > 0 && parameters.Limit < Constants.DEFAULT_LIMIT) 
             {
+                limit = parameters.Limit;
                 query = query.Take (parameters.Limit);
             }
             else
             {
+                limit = Constants.DEFAULT_LIMIT;
                 query = query.Take (Constants.DEFAULT_LIMIT);
+            }
+
+            if (parameters.Offset > -1) 
+            {
+                query = query.Skip (parameters.Offset*limit);
+            }
+            else
+            {
+                query = query.Skip (Constants.DEFAULT_OFFSET*limit);
             }
 
             return query.Select(p => new PeopleSearch.Models.V1.Person()
@@ -146,7 +149,7 @@ namespace PeopleSearch.Controllers.API.V1
                 City = p.City,
                 Age = p.Age,
                 PictureUrl = p.PictureUrl,
-                Interests = p.Interests.Select(r => r.Category),
+                Interests = p.Interests,
                 AddressState = p.AddressState.ToString()  
             }).ToList();
                 

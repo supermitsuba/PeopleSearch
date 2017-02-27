@@ -75,7 +75,7 @@ namespace PeopleSearch.Models.V1
         /// 
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<string> Interests { get; set; }
+        public string Interests { get; set; }
 
         /// <summary>
         /// 

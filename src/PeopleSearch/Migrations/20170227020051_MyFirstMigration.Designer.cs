@@ -9,29 +9,13 @@ using PeopleSearch.Data.Models;
 namespace PeopleSearch.Migrations
 {
     [DbContext(typeof(PersonSearchingContext))]
-    [Migration("20170226050518_PeopleSearch")]
-    partial class PeopleSearch
+    [Migration("20170227020051_MyFirstMigration")]
+    partial class MyFirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752");
-
-            modelBuilder.Entity("PeopleSearch.Data.Models.Interest", b =>
-                {
-                    b.Property<string>("InterestId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Category");
-
-                    b.Property<int>("PersonId");
-
-                    b.HasKey("InterestId");
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("Interests");
-                });
 
             modelBuilder.Entity("PeopleSearch.Data.Models.Person", b =>
                 {
@@ -50,6 +34,8 @@ namespace PeopleSearch.Migrations
 
                     b.Property<string>("FirstName");
 
+                    b.Property<string>("Interests");
+
                     b.Property<string>("LastName");
 
                     b.Property<string>("PictureUrl");
@@ -59,14 +45,6 @@ namespace PeopleSearch.Migrations
                     b.HasKey("PersonId");
 
                     b.ToTable("People");
-                });
-
-            modelBuilder.Entity("PeopleSearch.Data.Models.Interest", b =>
-                {
-                    b.HasOne("PeopleSearch.Data.Models.Person", "Person")
-                        .WithMany("Interests")
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

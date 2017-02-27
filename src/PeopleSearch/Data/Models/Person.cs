@@ -65,7 +65,7 @@ namespace PeopleSearch.Data.Models
         /// 
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Interest> Interests { get; set; }
+        public string Interests { get; set; }
 
         /// <summary>
         /// 

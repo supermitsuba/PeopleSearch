@@ -13,7 +13,6 @@ namespace PeopleSearch.Data
         /// </summary>
         /// <returns></returns>
         public DbSet<Person> People { get; set; }
-        public DbSet<Interest> Interests { get; set; }
 
         /// <summary>
         /// 
