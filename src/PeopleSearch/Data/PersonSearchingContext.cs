@@ -10,8 +10,15 @@ namespace PeopleSearch.Data
     /// </summary>
     public class PersonSearchingContext : DbContext
     {
-        public PersonSearchingContext(DbContextOptions<PersonSearchingContext> options) :base(options)
-        { }
+        /// <summary>
+        /// Initializes a new instance of the PersonSearchingContext class
+        /// </summary>
+        /// <param name="options"></param>
+        public PersonSearchingContext(DbContextOptions<PersonSearchingContext> options) 
+            : base(options)
+        { 
+            
+        }
 
         /// <summary>
         /// 
@@ -20,23 +27,22 @@ namespace PeopleSearch.Data
         public DbSet<Person> People { get; set; }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<int> Count()
         {
             return await People.CountAsync();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<Person>> GetAllUsers()
         {
             return await this.People.ToListAsync();
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="optionsBuilder"></param>
-        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Filename=../../../Data/PeopleSearch.db");
-        }*/
     }
 }

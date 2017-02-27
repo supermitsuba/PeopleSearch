@@ -5,17 +5,28 @@ using System.Linq;
 using System.Net.Http;
 using PeopleSearch;
 using PeopleSearch.Data;
-using PeopleSearch.Data.Models;
 
+/// <summary>
+/// 
+/// </summary>
 public class DatabaseHandler : DataHandler
 {
     private readonly PersonSearchingContext db;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="context"></param>
     public DatabaseHandler(PersonSearchingContext context)
     {
         this.db = context;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="parameters"></param>
+    /// <returns></returns>
     public override IEnumerable<PeopleSearch.Models.V1.Person> GetAllUsers(PeopleSearch.Models.V1.PersonQueryParameter parameters)
     {
         try
@@ -70,6 +81,11 @@ public class DatabaseHandler : DataHandler
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="person"></param>
+    /// <returns></returns>
     public override PeopleSearch.Data.Models.Person SavePerson(PeopleSearch.Models.V1.Person person)
     {
         try
@@ -102,6 +118,11 @@ public class DatabaseHandler : DataHandler
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="number"></param>
+    /// <returns></returns>
     public override IEnumerable<PeopleSearch.Data.Models.Person> GenerateUsers(int number)
     {
         try
@@ -131,6 +152,7 @@ public class DatabaseHandler : DataHandler
                     Age = 4,
                     PictureUrl = "http://www.google.com/"
                 };
+
                 db.Add(temp);
                 people.Add(temp);
             }
@@ -140,7 +162,10 @@ public class DatabaseHandler : DataHandler
         }
         catch (Exception exc)
         {
-            if (successor == null) throw exc;
+            if (successor == null) 
+            {
+                throw exc;
+            }
 
             return successor.GenerateUsers(number);
         }

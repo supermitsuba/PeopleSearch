@@ -1,11 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using PeopleSearch.Models.V1;
-
-namespace PeopleSearch.Data.Models 
+namespace PeopleSearch.Data.Models
 {
     /// <summary>
     /// 

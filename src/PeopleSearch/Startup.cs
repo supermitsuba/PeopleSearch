@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -10,6 +9,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using PeopleSearch.Data;
+using PeopleSearch.Settings;
 
 namespace PeopleSearch
 {
@@ -56,18 +56,18 @@ namespace PeopleSearch
             var connection = Configuration["Data:SqliteConnectionString"];
             services.AddDbContext<PeopleSearch.Data.PersonSearchingContext>( options => options.UseSqlite(connection));
 
-
             services.AddMemoryCache();
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
             
             // added chain of responsibility to DI framework
-            services.AddTransient<DataHandler, TrieHandler>((sp) => {
-                var result = new TrieHandler(sp.GetService<IMemoryCache>(), sp.GetService<PersonSearchingContext>());
-                result.SetSuccessor(new DatabaseHandler(sp.GetService<PersonSearchingContext>()));
-                return result;
-            });
-            
+            services.AddTransient<DataHandler, TrieHandler> (
+                (sp) => 
+                {
+                    var result = new TrieHandler(sp.GetService<IMemoryCache>(), sp.GetService<PersonSearchingContext>());
+                    result.SetSuccessor(new DatabaseHandler(sp.GetService<PersonSearchingContext>()));
+                    return result;
+                });
 
             services.AddMvc(options => options.MaxModelValidationErrors = 50);
         }

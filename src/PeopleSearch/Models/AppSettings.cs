@@ -1,11 +1,14 @@
-/// <summary>
-/// 
-/// </summary>
-public class AppSettings
+namespace PeopleSearch.Settings
 {
     /// <summary>
     /// 
     /// </summary>
-    /// <returns></returns>
-    public string ConnectionString { get; set; }
+    public class AppSettings
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string ConnectionString { get; set; }
+    }
 }

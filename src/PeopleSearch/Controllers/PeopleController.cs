@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
-using PeopleSearch.Models.V1;
+using PeopleSearch.Settings;
 
 namespace PeopleSearch.Controllers
 {
@@ -20,6 +16,12 @@ namespace PeopleSearch.Controllers
 
         private readonly IMemoryCache cache;
 
+        /// <summary>
+        /// Initializes a new instance of the PeopleController class.
+        /// </summary>
+        /// <param name="cache"></param>
+        /// <param name="handler"></param>
+        /// <param name="appSettings"></param>
         public PeopleController(IMemoryCache cache, DataHandler handler, IOptions<AppSettings> appSettings)
         {
             this.appSettings = appSettings.Value;
@@ -43,18 +45,23 @@ namespace PeopleSearch.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns> <summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("[controller]/create")]
         public IActionResult Create()
         {
-            ViewData["CreatePage"] = true;
+            ViewData["CreatePage"] = true; 
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="person"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("[controller]/create")]
-        public async Task<IActionResult> Create(Models.V1.Person person)
+        public IActionResult Create(Models.V1.Person person)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +75,7 @@ namespace PeopleSearch.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns> <summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("[controller]/import")]
         public IActionResult Import()
@@ -77,9 +84,14 @@ namespace PeopleSearch.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="person"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("[controller]/import")]
-        public async Task<IActionResult> Import(Models.V1.ImportViewModel person)
+        public IActionResult Import(Models.V1.ImportViewModel person)
         {
             if (ModelState.IsValid)
             {

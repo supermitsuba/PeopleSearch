@@ -13,6 +13,6 @@ namespace PeopleSearch
         /// <summary>
         /// 
         /// </summary>
-        public const int DEFAULT_LIMIT= 25;
+        public const int DEFAULT_LIMIT = 25;
     }    
 }

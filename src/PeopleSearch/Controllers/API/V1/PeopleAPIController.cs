@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using PeopleSearch.Models.V1;
 
@@ -17,9 +16,10 @@ namespace PeopleSearch.Controllers.API.V1
         private readonly DataHandler handler;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the PeopleAPIController class.
         /// </summary>
         /// <param name="logger"></param>
+        /// <param name="handler"></param>
         public PeopleAPIController(ILogger<PeopleAPIController> logger, DataHandler handler)
         {
             this.logger = logger;
@@ -33,7 +33,7 @@ namespace PeopleSearch.Controllers.API.V1
         /// <returns></returns>
         [HttpPost]
         [Route("v1/api/people/generate/{number}")]
-        public async Task<IEnumerable<string>> GenerateRandomPeople(int number)
+        public IEnumerable<string> GenerateRandomPeople(int number)
         {
             return handler.GenerateUsers(number).Select(p => p.FirstName + " " + p.LastName);
         }
@@ -45,7 +45,7 @@ namespace PeopleSearch.Controllers.API.V1
         /// <returns></returns>
         [HttpPost]
         [Route("v1/api/people")]
-        public async Task<string> CreatePerson([FromBody]Person person)
+        public string CreatePerson([FromBody]Person person)
         { 
             handler.SavePerson(person);
             return "OK";
@@ -61,9 +61,7 @@ namespace PeopleSearch.Controllers.API.V1
         public async Task<IEnumerable<Person>> GetAllPeople([FromQuery]PersonQueryParameter parameters)
         {
             await Task.Delay(parameters.Delay * 1000);
-
             return handler.GetAllUsers(parameters);
-                
         }
     }
 }

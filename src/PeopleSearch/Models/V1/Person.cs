@@ -1,7 +1,4 @@
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Threading.Tasks;
-using PeopleSearch.Data;
 
 namespace PeopleSearch.Models.V1
 {
@@ -21,7 +18,7 @@ namespace PeopleSearch.Models.V1
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns> <summary> <summary>
+        /// <returns></returns>
         [Required]
         [StringLength(25)]
         public string LastName { get; set; }
@@ -29,7 +26,7 @@ namespace PeopleSearch.Models.V1
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns> <summary>
+        /// <returns></returns>
         [StringLength(25)]
         [Required]
         public string Address1 { get; set; }
@@ -60,7 +57,7 @@ namespace PeopleSearch.Models.V1
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns> <summary>
+        /// <returns></returns>
         [Range(10000, 99999)]
         [Required]
         public int Zip { get; set; }

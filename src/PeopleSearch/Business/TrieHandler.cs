@@ -8,12 +8,20 @@ using PeopleSearch;
 using PeopleSearch.Data;
 using PeopleSearch.Data.Models;
 
+/// <summary>
+/// 
+/// </summary>
 public class TrieHandler : DataHandler
 {
     private Trie<char, Person> allPeople;
     private IMemoryCache cache;
     private readonly PersonSearchingContext db;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="cache"></param>
+    /// <param name="db"></param>
     public TrieHandler(IMemoryCache cache, PersonSearchingContext db)
     {
         this.cache = cache;
@@ -51,6 +59,11 @@ public class TrieHandler : DataHandler
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="parameters"></param>
+    /// <returns></returns>
     public override IEnumerable<PeopleSearch.Models.V1.Person> GetAllUsers(PeopleSearch.Models.V1.PersonQueryParameter parameters)
     {
         if (successor == null) throw new NullReferenceException("There is no Successor to complete the request.");
@@ -99,9 +112,17 @@ public class TrieHandler : DataHandler
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="person"></param>
+    /// <returns></returns>
     public override PeopleSearch.Data.Models.Person SavePerson(PeopleSearch.Models.V1.Person person)
     {
-        if (successor == null) throw new NullReferenceException("There is no Successor to complete the request.");
+        if (successor == null) 
+        {
+            throw new NullReferenceException("There is no Successor to complete the request.");
+        }
 
         if (allPeople == null)
         {
@@ -116,9 +137,17 @@ public class TrieHandler : DataHandler
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="number"></param>
+    /// <returns></returns>
     public override IEnumerable<PeopleSearch.Data.Models.Person> GenerateUsers(int number)
     {
-        if (successor == null) throw new NullReferenceException("There is no Successor to complete the request.");
+        if (successor == null) 
+        {
+            throw new NullReferenceException("There is no Successor to complete the request.");
+        }
 
         if (allPeople == null) //change to configuration
         {

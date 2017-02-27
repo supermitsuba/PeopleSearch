@@ -14,7 +14,7 @@ namespace PeopleSearch
         /// S
         /// </summary>
         /// <param name="args"></param>
-        public static void Main(string[] args)
+        public static void Main(string[] args) 
         {
             var configuration = new ConfigurationBuilder()
                 .AddCommandLine(args)
