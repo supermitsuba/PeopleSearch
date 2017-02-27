@@ -20,7 +20,7 @@ namespace PeopleSearch.Data
         /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Filename=./PeopleSearch.db");
+            optionsBuilder.UseSqlite("Filename=../../../Data/PeopleSearch.db");
         }
     }
 }
