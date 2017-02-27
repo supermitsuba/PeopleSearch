@@ -12,6 +12,15 @@ namespace PeopleSearch.Controllers
     /// </summary>
     public class PeopleController : Controller
     {
+        private readonly DataHandler handler;
+
+        public PeopleController()
+        {
+
+            this.handler = new TrieHandler();
+            handler.SetSuccessor(new DatabaseHandler());
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -43,7 +52,7 @@ namespace PeopleSearch.Controllers
         {
             if (ModelState.IsValid)
             {
-                PeopleSearch.Data.Models.Person.SavePerson(person);                
+                handler.SavePerson(person);                
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +77,7 @@ namespace PeopleSearch.Controllers
         {
             if (ModelState.IsValid)
             {
-                await PeopleSearch.Data.Models.Person.GenerateUsers(person.NumberOfUsers);
+                handler.GenerateUsers(person.NumberOfUsers);
                 return RedirectToAction("Index");
             }
 

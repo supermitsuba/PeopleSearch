@@ -13,6 +13,7 @@ namespace PeopleSearch.Controllers.API.V1
     public class PeopleAPIController : Controller
     {
         private readonly ILogger logger;
+        private readonly DataHandler handler;
 
         /// <summary>
         /// 
@@ -21,6 +22,8 @@ namespace PeopleSearch.Controllers.API.V1
         public PeopleAPIController(ILogger<PeopleAPIController> logger)
         {
             this.logger = logger;
+            this.handler = new TrieHandler();
+            handler.SetSuccessor(new DatabaseHandler());
         }
 
         /// <summary>
@@ -32,7 +35,7 @@ namespace PeopleSearch.Controllers.API.V1
         [Route("v1/api/people/generate/{number}")]
         public async Task<IEnumerable<string>> GenerateRandomPeople(int number)
         {
-            return (await Data.Models.Person.GenerateUsers(number)).Select(p => p.FirstName + " " + p.LastName);
+            return handler.GenerateUsers(number).Select(p => p.FirstName + " " + p.LastName);
         }
 
         /// <summary>
@@ -44,7 +47,7 @@ namespace PeopleSearch.Controllers.API.V1
         [Route("v1/api/people")]
         public async Task<string> CreatePerson([FromBody]Person person)
         { 
-            await Data.Models.Person.SavePerson(person);
+            handler.SavePerson(person);
             return "OK";
         }
 
@@ -59,7 +62,7 @@ namespace PeopleSearch.Controllers.API.V1
         {
             await Task.Delay(parameters.Delay * 1000);
 
-            return Data.Models.Person.GetAllUsers(parameters);
+            return handler.GetAllUsers(parameters);
                 
         }
     }
