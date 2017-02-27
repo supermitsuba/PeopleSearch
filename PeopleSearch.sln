@@ -14,10 +14,6 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch", "src\PeopleS
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.Tests", "src\PeopleSearch.Tests\PeopleSearch.Tests.xproj", "{11E0274A-257C-4FB8-9908-CE0CD9AD20AD}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.Data", "src\PeopleSearch.Data\PeopleSearch.Data.xproj", "{50355C69-663F-4F64-A269-D79B11169446}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.Data.Tests", "src\PeopleSearch.Data.Tests\PeopleSearch.Data.Tests.xproj", "{C3C890B3-9158-42A7-8BAF-DCBACD058075}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,14 +28,6 @@ Global
 		{11E0274A-257C-4FB8-9908-CE0CD9AD20AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11E0274A-257C-4FB8-9908-CE0CD9AD20AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11E0274A-257C-4FB8-9908-CE0CD9AD20AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50355C69-663F-4F64-A269-D79B11169446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50355C69-663F-4F64-A269-D79B11169446}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50355C69-663F-4F64-A269-D79B11169446}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50355C69-663F-4F64-A269-D79B11169446}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3C890B3-9158-42A7-8BAF-DCBACD058075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3C890B3-9158-42A7-8BAF-DCBACD058075}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3C890B3-9158-42A7-8BAF-DCBACD058075}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3C890B3-9158-42A7-8BAF-DCBACD058075}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,7 +35,5 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7E0B36F0-51E2-41B6-9AE2-42B9D4600855} = {1DBF1E7A-201C-4753-B1CD-139B677396D8}
 		{11E0274A-257C-4FB8-9908-CE0CD9AD20AD} = {1DBF1E7A-201C-4753-B1CD-139B677396D8}
-		{50355C69-663F-4F64-A269-D79B11169446} = {1DBF1E7A-201C-4753-B1CD-139B677396D8}
-		{C3C890B3-9158-42A7-8BAF-DCBACD058075} = {1DBF1E7A-201C-4753-B1CD-139B677396D8}
 	EndGlobalSection
 EndGlobal
