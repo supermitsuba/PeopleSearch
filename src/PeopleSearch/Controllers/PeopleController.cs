@@ -17,11 +17,10 @@ namespace PeopleSearch.Controllers
 
         private readonly IMemoryCache cache;
 
-        public PeopleController(IMemoryCache cache)
+        public PeopleController(IMemoryCache cache, DataHandler handler)
         {
             this.cache = cache;
-            this.handler = new TrieHandler(cache);
-            handler.SetSuccessor(new DatabaseHandler());
+            this.handler = handler;            
         }
 
         /// <summary>

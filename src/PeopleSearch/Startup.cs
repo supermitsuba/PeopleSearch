@@ -1,7 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -50,6 +52,14 @@ namespace PeopleSearch
             services.AddMemoryCache();
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
+            
+            // added chain of responsibility to DI framework
+            services.AddTransient<DataHandler, TrieHandler>((sp) => {
+                var result = new TrieHandler(sp.GetService<IMemoryCache>());
+                result.SetSuccessor(new DatabaseHandler());
+                return result;
+            });
+            
 
             services.AddMvc(options => options.MaxModelValidationErrors = 50);
         }
