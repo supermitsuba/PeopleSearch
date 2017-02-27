@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using PeopleSearch.Models.V1;
 
@@ -14,15 +15,17 @@ namespace PeopleSearch.Controllers.API.V1
     {
         private readonly ILogger logger;
         private readonly DataHandler handler;
+        private readonly IMemoryCache cache;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="logger"></param>
-        public PeopleAPIController(ILogger<PeopleAPIController> logger)
+        public PeopleAPIController(ILogger<PeopleAPIController> logger, IMemoryCache cache)
         {
             this.logger = logger;
-            this.handler = new TrieHandler();
+            this.cache = cache;
+            this.handler = new TrieHandler(cache);
             handler.SetSuccessor(new DatabaseHandler());
         }
 

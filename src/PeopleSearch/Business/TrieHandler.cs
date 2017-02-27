@@ -2,27 +2,43 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DataStructures;
+using Microsoft.Extensions.Caching.Memory;
 using PeopleSearch;
 using PeopleSearch.Data.Models;
 
 public class TrieHandler : DataHandler
 {
-    private DataStructures.Trie<char, Person> allPeople;
+    private Trie<char, Person> allPeople;
+    private IMemoryCache cache;
 
-    public TrieHandler()
+    public TrieHandler(IMemoryCache cache)
     {
+        this.cache = cache;
+
         if (PeopleSearch.Data.Models.Person.Count() > 100000)
         {
             allPeople = null;
         }
         else
         {
+            GetTrieCache();
+        }
+    }
+
+    private void GetTrieCache()
+    {
+        if (!cache.TryGetValue("Trie", out allPeople))
+        {            
             allPeople = new DataStructures.Trie<char, Person>();
             foreach (var p in Person.GetAllUsers())
             {
                 allPeople.Add(p.FirstName.ToLower(), p);
                 allPeople.Add(p.LastName.ToLower(), p);
             }
+
+            var cacheEntryOptions = new MemoryCacheEntryOptions();
+            cache.Set("Trie", allPeople);
         }
     }
 
@@ -30,7 +46,7 @@ public class TrieHandler : DataHandler
     {
         if (successor == null) throw new NullReferenceException("There is no Successor to complete the request.");
 
-        if (PeopleSearch.Data.Models.Person.Count() > 100000)
+        if (allPeople == null)
         {
             return successor.GetAllUsers(parameters);
         }
@@ -78,7 +94,7 @@ public class TrieHandler : DataHandler
     {
         if (successor == null) throw new NullReferenceException("There is no Successor to complete the request.");
 
-        if (PeopleSearch.Data.Models.Person.Count() > 100000)
+        if (allPeople == null)
         {
             return successor.SavePerson(person);
         }
@@ -95,7 +111,7 @@ public class TrieHandler : DataHandler
     {
         if (successor == null) throw new NullReferenceException("There is no Successor to complete the request.");
 
-        if (PeopleSearch.Data.Models.Person.Count() > 100000) //change to configuration
+        if (allPeople == null) //change to configuration
         {
             return successor.GenerateUsers(number);
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using PeopleSearch.Models.V1;
 
 namespace PeopleSearch.Controllers
@@ -14,10 +15,12 @@ namespace PeopleSearch.Controllers
     {
         private readonly DataHandler handler;
 
-        public PeopleController()
-        {
+        private readonly IMemoryCache cache;
 
-            this.handler = new TrieHandler();
+        public PeopleController(IMemoryCache cache)
+        {
+            this.cache = cache;
+            this.handler = new TrieHandler(cache);
             handler.SetSuccessor(new DatabaseHandler());
         }
 

@@ -47,7 +47,7 @@ namespace PeopleSearch
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.AddMemoryCache();
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
