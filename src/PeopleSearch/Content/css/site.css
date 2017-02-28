@@ -2,3 +2,17 @@
 {
     visibility: hidden
 }
+
+.searchTable 
+{
+    min-height: 500px; 
+    height: 100%; 
+    visibility: hidden;
+}
+
+.formStyle
+{
+    min-height: 500px; 
+    max-width:600px; 
+    height: 100%;
+}

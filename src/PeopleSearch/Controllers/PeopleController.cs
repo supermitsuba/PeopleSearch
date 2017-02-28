@@ -80,7 +80,7 @@ namespace PeopleSearch.Controllers
 
                 return View(person);
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 logger.LogError(new EventId(), exc, "Exception");
                 return StatusCode(500);
@@ -120,7 +120,7 @@ namespace PeopleSearch.Controllers
 
                 return View(importViewModel);
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 logger.LogError(new EventId(), exc, "Exception");
                 return StatusCode(500);

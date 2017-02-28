@@ -57,14 +57,15 @@ You might notice that with each feature there is a release created.  This should
   - Using Front-end task manager like Grunt/Gulp/etc
 - [X] Front-End Build Process ?
   - [X] Angular.js or JQuery?
-  - [ ] CSS
+  - [X] CSS
   - [ ] ~~~JS minify and Bundle~~~
     - Didnt find out how to integrate
   - [ ] ~~~Unit Tests~~~
     - Didnt get to javascript tests
   - [X] Twitter Bootstrap
 - [X] SQLite
-  - [ ] SQL Scripts
+  - [X] ~~~SQL Scripts~~~
+    - There is a database file
   - [X] Entity Framework
 - [X] Add Unit Test Project
   - [ ] Write Unit Tests
@@ -78,7 +79,8 @@ You might notice that with each feature there is a release created.  This should
   - Enabled [style cop analyzer](https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/Configuration.md)
 - [X] Deployments
   - [X] Docker Scripts ?
-  - [ ] Scripts to deploy to Azure?
+  - [ ] ~~~Scripts to deploy to Azure?~~~
+    - not enough time to look into this
 - [X] Name Generator?
   - use this API https://uinames.com/api/?amount=25&region=united+states
 - [X] Github Releases and tags
