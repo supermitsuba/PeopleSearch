@@ -17,7 +17,6 @@
 
 Note that these are things I wanted to do that were out of scope, but might be valid to add to the project.
 
-- Trie working (it's there)
 - Address lookup for validating
 - Shrink pictures for search to make the results faster
 - Color and styling
@@ -66,7 +65,7 @@ Docker linux is more accessable than Docker windows.  This is because Docker win
 
 ### Database vs In Memory
 
-I used a combination of in memory and database calls.  I figured that each Person record is about 1000 Bytes (just look at the length and add some fluff).  Because of this, we could say that we could store around 100,000 records in memory.  This makes access fast, especially using a Trie.  If the number of records exceed 100,000, then we fail back to Database queries.  We do this by using a Chain of Responsibility design pattern.
+I used a combination of in memory and database calls.  I figured that each Person record is about 1000 Bytes (just look at the length and add some fluff).  Because of this, we could say that we could store around 100,000 records in memory and it would only consume 100 MB.  Potentially we could store up to a million results to give 1 GB, and possibly 10's of millions of uses.  This makes access fast, especially using a Trie.  If the number of records exceed 100,000, then we fail back to Database queries.  We do this by using a Chain of Responsibility design pattern.
 
 ### Distrubuted vs Single machine
 
@@ -77,6 +76,7 @@ We are using a single machine in our estimations.  Caching in memory would not w
 SPA web sites are great for responsive web UI's.  They also reduce the amount the round trip data being sent, but there are downsides.  One is that if javascript is disabled, then a SPA page does not work.  Also, if you are wanting SEO to pick up on the site, then SPA would not render.  If you wanted to use a SPA, it would have to be an internal application.  If you needed SEO, then you might want to do partial SPA/post-back data.
 
 ### Using Front-end task manager like Grunt/Gulp/etc
+
 Say if you wanted to build SASS or LESS CSS, JS minify or build, compile from typescript to javascript, then you want to use a task system like Grunt or Gulp.  In ASP.net core you can build the process into the workflow, but that means install Node and NPM.  One of the requests is to start the project immediately, so I was hesitant to add this into the project.
 
 ## Application Checklist

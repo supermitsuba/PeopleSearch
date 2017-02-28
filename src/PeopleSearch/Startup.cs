@@ -63,13 +63,13 @@ namespace PeopleSearch
             services.AddApplicationInsightsTelemetry(Configuration);
             
             // added chain of responsibility to DI framework
-            services.AddTransient<DataHandler, DatabaseHandler> (
+            services.AddTransient<DataHandler, TrieHandler> (
                 (sp) => 
                 {
                     //Bugs with TrieHandler :(
-                    //var result = new TrieHandler(sp.GetService<IMemoryCache>(), sp.GetService<PersonSearchingContext>());
-                    //result.SetSuccessor(new DatabaseHandler(sp.GetService<PersonSearchingContext>()));
-                    return new DatabaseHandler(sp.GetService<PersonSearchingContext>());
+                    var result = new TrieHandler(sp.GetService<IMemoryCache>(), sp.GetService<PersonSearchingContext>());
+                    result.SetSuccessor(new DatabaseHandler(sp.GetService<PersonSearchingContext>()));
+                    return result; //new DatabaseHandler(sp.GetService<PersonSearchingContext>());
                 });
 
             services.AddMvc(options => options.MaxModelValidationErrors = 50);

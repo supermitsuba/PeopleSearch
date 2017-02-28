@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DataStructures;
+using Gma.DataStructures.StringSearch;
 using Microsoft.Extensions.Caching.Memory;
 using PeopleSearch;
 using PeopleSearch.Data;
@@ -13,7 +13,7 @@ using PeopleSearch.Data.Models;
 /// </summary>
 public class TrieHandler : DataHandler
 {
-    private Trie<char, Person> allPeople;
+    private Trie<Person> allPeople;
     private IMemoryCache cache;
     private readonly PersonSearchingContext db;
 
@@ -44,7 +44,7 @@ public class TrieHandler : DataHandler
     {
         if (!cache.TryGetValue("Trie", out allPeople)) //see if there is not a Trie
         {            
-            allPeople = new DataStructures.Trie<char, Person>();
+            allPeople = new Trie<Person>();
             var allUserTask = db.GetAllUsers(); // get a list of all users.
             allUserTask.Wait();
 
@@ -74,18 +74,9 @@ public class TrieHandler : DataHandler
         }
         else
         {
-            var results = allPeople.Suffixes(parameters.Prefix.ToLower()).Select(p => p.Value);
-            var limit = 0;
-            if (parameters.Limit > 0 && parameters.Limit < Constants.DEFAULT_LIMIT)
-            {
-                limit = parameters.Limit;
-                results = results.Take(parameters.Limit);
-            }
-            else
-            {
-                limit = Constants.DEFAULT_LIMIT;
-                results = results.Take(Constants.DEFAULT_LIMIT);
-            }
+            var results = allPeople.Retrieve(parameters.Prefix.ToLower());
+            var limit = (parameters.Limit > 0 && parameters.Limit < Constants.DEFAULT_LIMIT) ? parameters.Limit : Constants.DEFAULT_LIMIT;
+
 
             if (parameters.Offset > -1)
             {
@@ -94,6 +85,15 @@ public class TrieHandler : DataHandler
             else
             {
                 results = results.Skip(Constants.DEFAULT_OFFSET * limit);
+            }
+
+            if (parameters.Limit > 0 && parameters.Limit < Constants.DEFAULT_LIMIT)
+            {
+                results = results.Take(parameters.Limit);
+            }
+            else
+            {
+                results = results.Take(Constants.DEFAULT_LIMIT);
             }
 
             return results.Select(p => new PeopleSearch.Models.V1.Person()
