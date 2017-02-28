@@ -93,8 +93,8 @@ Say if you wanted to build SASS or LESS CSS, JS minify or build, compile from ty
   - [X] Add production/dev environment
   - [X] Add logging
   - [X] Return Error Codes
-- [ ] Usage Documentation
-- [ ] Tradeoffs
+- [X] Usage Documentation
+- [X] Tradeoffs
   - SQLite vs SQL Server
   - ASP.net CORE vs .net Framework 4.6
   - windows vs cross platform
