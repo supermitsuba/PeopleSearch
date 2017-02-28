@@ -13,6 +13,16 @@
 - Use Entity Framework Code First to talk to the database
 - Unit Tests for appropriate parts of the application
 
+### Things I missed
+
+Note that these are things I wanted to do that were out of scope, but might be valid to add to the project.
+
+- Trie working (it's there)
+- Address lookup for validating
+- Shrink pictures for search to make the results faster
+- Color and styling
+- Interests picker (As you type an interest, it adds it in a list format)
+
 ### Quick Links
 
 Please visit [localhost](http://localhost:8000/people)
