@@ -1,5 +1,7 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PeopleSearch.Settings;
 
@@ -10,6 +12,7 @@ namespace PeopleSearch.Controllers
     /// </summary>
     public class PeopleController : Controller
     {
+        private readonly ILogger logger;
         private readonly DataHandler handler;
 
         private readonly AppSettings appSettings;
@@ -22,8 +25,9 @@ namespace PeopleSearch.Controllers
         /// <param name="cache"></param>
         /// <param name="handler"></param>
         /// <param name="appSettings"></param>
-        public PeopleController(IMemoryCache cache, DataHandler handler, IOptions<AppSettings> appSettings)
+        public PeopleController(ILogger<PeopleController> logger, IMemoryCache cache, DataHandler handler, IOptions<AppSettings> appSettings)
         {
+            this.logger = logger;
             this.appSettings = appSettings.Value;
             this.cache = cache;
             this.handler = handler;           
@@ -66,13 +70,21 @@ namespace PeopleSearch.Controllers
         [Route("[controller]/create")]
         public IActionResult Create(Models.V1.Person person)
         {
-            if (ModelState.IsValid)
+            try
             {
-                handler.SavePerson(person);                
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    handler.SavePerson(person);                
+                    return RedirectToAction("Index");
+                }
 
-            return View(person);
+                return View(person);
+            }
+            catch(Exception exc)
+            {
+                logger.LogError(new EventId(), exc, "Exception");
+                return StatusCode(500);
+            }
         }
 
         /// <summary>
@@ -98,13 +110,21 @@ namespace PeopleSearch.Controllers
         [Route("[controller]/import")]
         public IActionResult Import(Models.V1.ImportViewModel importViewModel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                handler.GenerateUsers(importViewModel.NumberOfUsers);
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    handler.GenerateUsers(importViewModel.NumberOfUsers);
+                    return RedirectToAction("Index");
+                }
 
-            return View(importViewModel);
+                return View(importViewModel);
+            }
+            catch(Exception exc)
+            {
+                logger.LogError(new EventId(), exc, "Exception");
+                return StatusCode(500);
+            }
         }
     }
 }

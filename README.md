@@ -38,12 +38,12 @@ You might notice that with each feature there is a release created.  This should
   - [ ] Shrink Images
   - [X] Logger - Log4Net
   - [X] Caching and Redis ?
-  - [ ] Complete mass import call
+  - [X] Complete mass import call
   - [ ] Moq
   - [X] DI/ IOC -> Unity?
   - [X] Add production/dev environment
   - [ ] Add logging
-  - [ ] Return Error Codes
+  - [X] Return Error Codes
 - [ ] Usage Documentation
 - [ ] Tradeoffs
   - SQLite vs SQL Server
@@ -57,9 +57,11 @@ You might notice that with each feature there is a release created.  This should
   - Using Front-end task manager like Grunt/Gulp/etc
 - [X] Front-End Build Process ?
   - [X] Angular.js or JQuery?
-  - [ ] CSS Preprocessor
-  - [ ] JS minify and Bundle
-  - [ ] Unit Tests
+  - [ ] CSS
+  - [ ] ~~~JS minify and Bundle~~~
+    - Didnt find out how to integrate
+  - [ ] ~~~Unit Tests~~~
+    - Didnt get to javascript tests
   - [X] Twitter Bootstrap
 - [X] SQLite
   - [ ] SQL Scripts
@@ -80,5 +82,5 @@ You might notice that with each feature there is a release created.  This should
 - [X] Name Generator?
   - use this API https://uinames.com/api/?amount=25&region=united+states
 - [X] Github Releases and tags
-- [X] ~~Performance Tests ?~~
+- [ ] ~~Performance Tests ?~~
   - Not doing performance tests

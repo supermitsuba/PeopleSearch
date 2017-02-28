@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,9 +34,17 @@ namespace PeopleSearch.Controllers.API.V1
         /// <returns>Returns a list of the users generated.</returns>
         [HttpPost]
         [Route("v1/api/people/generate/{number}")]
-        public IEnumerable<string> GenerateRandomPeople(int number)
+        public IActionResult GenerateRandomPeople(int number)
         {
-            return handler.GenerateUsers(number).Select(p => p.FirstName + " " + p.LastName);
+            try
+            {
+                return Ok(handler.GenerateUsers(number).Select(p => p.FirstName + " " + p.LastName));
+            }
+            catch (Exception exc)
+            {
+                logger.LogError(new EventId(), exc, "Exception");
+                return StatusCode(500);
+            }
         }
 
         /// <summary>
@@ -45,10 +54,18 @@ namespace PeopleSearch.Controllers.API.V1
         /// <returns>Returns if the action was OK or not.</returns>
         [HttpPost]
         [Route("v1/api/people")]
-        public string CreatePerson([FromBody]Person person)
+        public IActionResult CreatePerson([FromBody]Person person)
         { 
-            handler.SavePerson(person);
-            return "OK";
+            try
+            {
+                handler.SavePerson(person);
+                return Ok();
+            }
+            catch (Exception exc)
+            {
+                logger.LogError(new EventId(), exc, "Exception");
+                return StatusCode(500);
+            }
         }
 
         /// <summary>
@@ -59,10 +76,18 @@ namespace PeopleSearch.Controllers.API.V1
         /// <returns>Returns a list of all the people that fit the criteria in paramref name="parameters".</returns>
         [HttpGet]
         [Route("v1/api/people")]
-        public async Task<IEnumerable<Person>> GetAllPeople([FromQuery]PersonQueryParameter parameters)
+        public async Task<IActionResult> GetAllPeople([FromQuery]PersonQueryParameter parameters)
         {
-            await Task.Delay(parameters.Delay * 1000);
-            return handler.GetAllUsers(parameters);
+            try
+            {
+                await Task.Delay(parameters.Delay * 1000);
+                return Ok(handler.GetAllUsers(parameters));
+            }
+            catch (Exception exc)
+            {
+                logger.LogError(new EventId(), exc, "Exception");
+                return StatusCode(500);
+            }
         }
     }
 }
