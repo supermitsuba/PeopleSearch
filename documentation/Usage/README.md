@@ -2,7 +2,14 @@
 
 ## [Searching](http://localhost:8000/people)
 
-If you want to start searching for a person, check out the [search page](1).  To search, just start typing in the search text box.  When typing, after 2 seconds you should see a spinning bar [image](7).  When results do show, if they are more than 10 items, there should be some page navigation buttons, like [](8).  As you progress, you can access the previous page from this button [](9).
+If you want to start searching for a person, check out the search page.  
+![](https://raw.githubusercontent.com/supermitsuba/PeopleSearch/master/documentation/Usage/1.png)
+To search, just start typing in the search text box.  When typing, after 2 seconds you should see a spinning bar. 
+![](https://raw.githubusercontent.com/supermitsuba/PeopleSearch/master/documentation/Usage/7.png)  
+When results do show, if they are more than 10 items, there should be some page navigation buttons.
+![](https://raw.githubusercontent.com/supermitsuba/PeopleSearch/master/documentation/Usage/8.png)  
+As you progress, you can access the previous page from this button.
+![](https://raw.githubusercontent.com/supermitsuba/PeopleSearch/master/documentation/Usage/9.png).
 
 ## [Insert Page](http://localhost:8000/insert)
 
