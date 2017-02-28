@@ -13,6 +13,12 @@
 - Use Entity Framework Code First to talk to the database
 - Unit Tests for appropriate parts of the application
 
+### Prerequisite
+
+- .Net Core 1.0.3 SDK
+- Visual Studio .net or Visual Studio Code
+- Linux/Windows/Mac
+
 ### Things I missed
 
 Note that these are things I wanted to do that were out of scope, but might be valid to add to the project.
@@ -31,6 +37,8 @@ API documentation is located here: [Swagger Documentation](https://github.com/su
 CI Builds use [Travis CI](https://travis-ci.com/).  They are located here: [PeopleSearch CI](https://travis-ci.org/supermitsuba/PeopleSearch)
 
 Deployment Scripts are located here: [Docker deployment README](https://github.com/supermitsuba/PeopleSearch/tree/master/deployment/docker)
+
+[Usage](https://github.com/supermitsuba/PeopleSearch/tree/master/documentation/Usage) 
 
 Entity Setup : [Setup Guide](https://docs.microsoft.com/en-us/ef/core/get-started/netcore/new-db-sqlite)
 
@@ -91,8 +99,8 @@ Say if you wanted to build SASS or LESS CSS, JS minify or build, compile from ty
   - [X] Add production/dev environment
   - [X] Add logging
   - [X] Return Error Codes
-- [ ] Usage Documentation
-- [ ] Tradeoffs
+- [X] Usage Documentation
+- [X] Tradeoffs
   - SQLite vs SQL Server
   - ASP.net CORE vs .net Framework 4.6
   - windows vs cross platform
