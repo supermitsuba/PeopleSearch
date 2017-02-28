@@ -429,7 +429,7 @@ namespace DataStructures
                     // Add to this node
                     if (null != node.Value)
                     {
-                        throw new InvalidOperationException("Duplicate Key!");
+                        //throw new InvalidOperationException("Duplicate Key!");
                     }
                     else
                     {
