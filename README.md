@@ -13,6 +13,12 @@
 - Use Entity Framework Code First to talk to the database
 - Unit Tests for appropriate parts of the application
 
+### Prerequisite
+
+- .Net Core 1.0.3 SDK
+- Visual Studio .net or Visual Studio Code
+- Linux/Windows/Mac
+
 ### Things I missed
 
 Note that these are things I wanted to do that were out of scope, but might be valid to add to the project.
