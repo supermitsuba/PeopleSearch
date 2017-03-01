@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +22,16 @@ namespace PeopleSearch.Controllers.API.V1
         /// <param name="handler">Handler takes care of getting the data to return to the user.</param>
         public PeopleAPIController(ILogger<PeopleAPIController> logger, DataHandler handler)
         {
+            if (logger == null)
+            {
+                throw new NullReferenceException("Logger is null");
+            }
+
+            if (handler == null)
+            {
+                throw new NullReferenceException("Handler is null"); 
+            }
+
             this.logger = logger;
             this.handler = handler;
         }
@@ -81,7 +90,8 @@ namespace PeopleSearch.Controllers.API.V1
             try
             {
                 await Task.Delay(parameters.Delay * 1000);
-                return Ok(handler.GetAllUsers(parameters));
+                var result = handler.GetAllUsers(parameters);
+                return Ok(result);
             }
             catch (Exception exc)
             {

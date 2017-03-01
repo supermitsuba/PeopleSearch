@@ -23,6 +23,7 @@
 
 Note that these are things I wanted to do that were out of scope, but might be valid to add to the project.
 
+- StyleCop not working properly.  Reporting on Generated code.
 - Address lookup for validating
 - Shrink pictures for search to make the results faster
 - Color and styling
