@@ -39,7 +39,7 @@ CI Builds use [Travis CI](https://travis-ci.com/).  They are located here: [Peop
 
 Deployment Scripts are located here: [Docker deployment README](https://github.com/supermitsuba/PeopleSearch/tree/master/deployment/docker)
 
-[Usage](https://github.com/supermitsuba/PeopleSearch/tree/master/documentation/Usage) 
+[End-User Documentation](https://github.com/supermitsuba/PeopleSearch/tree/master/documentation/Usage) 
 
 Entity Setup : [Setup Guide](https://docs.microsoft.com/en-us/ef/core/get-started/netcore/new-db-sqlite)
 
