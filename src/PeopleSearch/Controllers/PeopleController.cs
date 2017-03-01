@@ -13,6 +13,7 @@ namespace PeopleSearch.Controllers
     public class PeopleController : Controller
     {
         private readonly ILogger logger;
+        
         private readonly DataHandler handler;
 
         private readonly AppSettings appSettings;
@@ -27,6 +28,26 @@ namespace PeopleSearch.Controllers
         /// <param name="appSettings"></param>
         public PeopleController(ILogger<PeopleController> logger, IMemoryCache cache, DataHandler handler, IOptions<AppSettings> appSettings)
         {
+            if (logger == null) 
+            {
+                throw new NullReferenceException("Logger is null");
+            }
+
+            if (appSettings == null)
+            {
+                throw new NullReferenceException("AppSettings is null");
+            }
+
+            if (cache == null)
+            {
+                throw new NullReferenceException("Cache is null");
+            }
+
+            if (handler == null)
+            {
+                throw new NullReferenceException("Handler is null");
+            }
+
             this.logger = logger;
             this.appSettings = appSettings.Value;
             this.cache = cache;
@@ -44,7 +65,7 @@ namespace PeopleSearch.Controllers
         {
             ViewData["SearchPage"] = true;
             
-            return View();
+            return View("Index");
         }
 
         /// <summary>
@@ -57,7 +78,7 @@ namespace PeopleSearch.Controllers
         public IActionResult Create()
         {
             ViewData["CreatePage"] = true; 
-            return View();
+            return View("Create");
         }
 
         /// <summary>
@@ -97,7 +118,7 @@ namespace PeopleSearch.Controllers
         public IActionResult Import()
         {
             ViewData["ImportPage"] = true;
-            return View();
+            return View("Import");
         }
 
         /// <summary>

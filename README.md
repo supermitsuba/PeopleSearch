@@ -89,12 +89,14 @@ Say if you wanted to build SASS or LESS CSS, JS minify or build, compile from ty
 
 ## Application Checklist
 
-- [ ] Code
+- [X] Code
   - [ ] ~~~Shrink Images~~~
+    - Not enough time
   - [X] Logger - Log4Net
   - [X] Caching and Redis ?
   - [X] Complete mass import call
-  - [ ] Moq
+  - [X] ~~Moq~~
+    - Using Fakes
   - [X] DI/ IOC -> Unity?
   - [X] Add production/dev environment
   - [X] Add logging
