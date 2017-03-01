@@ -54,15 +54,15 @@ You might notice that with each feature there is a release created.  This should
 
 ### ASP.net CORE
 
-Asp.net core is a new version of .net.  The reason to use it is to do cross platform develoment.  The downside is that the framework is not equal to eariler versions.  This means that things that worked before dont work now.  The upside of using .net core is that you can use open source tools.  Travis CI and Docker are not accessible easily using .net core.
+Asp.net core is a new version of .net.  The reason to use it is to do cross platform develoment.  The downside is that the framework is not equal to eariler versions.  This means that things that worked before dont work now.  The upside of using .net core is that you can use open source tools.  Travis CI and Docker are usable with .net core.
 
 ### Images
 
-Right now the images are show full resolution, then shunk down using css.  We should instead taking the image and reprocessing it.  This would make a great customer experience by reducing the number of bytes that are sent.
+Right now the images are shown in full resolution, then shunk down using css.  We should instead taking the image and reprocessing it.  This would make a great customer experience by reducing the number of bytes that are sent.
 
 ### SQLite vs SQL Server
 
-I used SQLite because SQL Server local files could not be used on linux/mac.  A mac or linux client can connect to a SQL Server though, so it isnt all bad.  SQLite is universal and so I could use this no problem.
+I used SQLite because SQL Server local files could not be used on linux/mac.  A mac or linux client can connect to a SQL Server though, so it isnt all bad.  SQLite is universal and so I could use this on mac/linux/windows no problem.
 
 ### xunit vs MSTest
 
@@ -74,7 +74,7 @@ Docker linux is more accessable than Docker windows.  This is because Docker win
 
 ### Database vs In Memory
 
-I used a combination of in memory and database calls.  I figured that each Person record is about 1000 Bytes (just look at the length and add some fluff).  Because of this, we could say that we could store around 100,000 records in memory and it would only consume 100 MB.  Potentially we could store up to a million results to give 1 GB, and possibly 10's of millions of users.  This makes access fast, especially using a Trie.  If the number of records exceed 100,000, then we fail back to Database queries.  We do this by using a Chain of Responsibility design pattern.
+I used a combination of in memory and database calls.  I figured that each Person record is about 1000 Bytes (just look at the length of each field and add some fluff).  Because of this, we could say that we could store around 100,000 records in memory and it would only consume 100 MB.  Potentially we could store up to a million results to give 1 GB, and possibly 10's of millions of users.  This makes access fast, especially using a Trie.  If the number of records exceed 100,000, then we fail back to Database queries.  We do this by using a Chain of Responsibility design pattern.
 
 ### Distrubuted vs Single machine
 
