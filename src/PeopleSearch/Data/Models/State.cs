@@ -2,6 +2,7 @@
 //-----------------------------------------------------------------------
 using System.ComponentModel;
 
+#region Component Designer generated code
 namespace PeopleSearch.Data.Models 
 {
     public enum State
@@ -161,3 +162,4 @@ namespace PeopleSearch.Data.Models
 
     }
 }
+#endregion
