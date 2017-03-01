@@ -73,7 +73,7 @@ Docker linux is more accessable than Docker windows.  This is because Docker win
 
 ### Database vs In Memory
 
-I used a combination of in memory and database calls.  I figured that each Person record is about 1000 Bytes (just look at the length and add some fluff).  Because of this, we could say that we could store around 100,000 records in memory and it would only consume 100 MB.  Potentially we could store up to a million results to give 1 GB, and possibly 10's of millions of uses.  This makes access fast, especially using a Trie.  If the number of records exceed 100,000, then we fail back to Database queries.  We do this by using a Chain of Responsibility design pattern.
+I used a combination of in memory and database calls.  I figured that each Person record is about 1000 Bytes (just look at the length and add some fluff).  Because of this, we could say that we could store around 100,000 records in memory and it would only consume 100 MB.  Potentially we could store up to a million results to give 1 GB, and possibly 10's of millions of users.  This makes access fast, especially using a Trie.  If the number of records exceed 100,000, then we fail back to Database queries.  We do this by using a Chain of Responsibility design pattern.
 
 ### Distrubuted vs Single machine
 
