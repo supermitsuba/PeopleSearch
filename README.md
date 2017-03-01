@@ -126,7 +126,7 @@ Say if you wanted to build SASS or LESS CSS, JS minify or build, compile from ty
     - There is a database file
   - [X] Entity Framework
 - [X] Add Unit Test Project
-  - [ ] Write Unit Tests
+  - [X] Write Unit Tests ( > 30 tests)
 - [X] API Documentation
   - This is at [Swagger documentation](https://github.com/supermitsuba/PeopleSearch/tree/master/documentation)
   - There is also a postman script to help with calling the APIs.
