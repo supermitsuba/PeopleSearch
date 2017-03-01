@@ -15,8 +15,8 @@
 
 ### Prerequisite
 
-- .Net Core 1.0.3 SDK
-- Visual Studio .net or Visual Studio Code
+- [.Net Core 1.0.3 SDK](https://www.microsoft.com/net/download/core)
+- [Visual Studio .net](https://www.visualstudio.com/downloads/) or [Visual Studio Code](https://code.visualstudio.com/download)
 - Linux/Windows/Mac
 
 ### Things I missed
