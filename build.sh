@@ -3,5 +3,5 @@
 cd src/PeopleSearch
 dotnet restore && dotnet build **/project.json
 
-cd ../PeopleSearch.Tests
+cd ../../test/PeopleSearch.Tests
 dotnet restore && dotnet test ../PeopleSearch.Tests/ 
