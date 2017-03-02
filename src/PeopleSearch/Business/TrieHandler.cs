@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +12,10 @@ using PeopleSearch.Data.Models;
 /// </summary>
 public class TrieHandler : DataHandler
 {
-    private Trie<Person> allPeople;
-    private IMemoryCache cache;
+    private readonly IMemoryCache cache;
     private readonly PersonSearchingContext db;
+
+    private Trie<Person> allPeople;
 
     /// <summary>
     /// This initializes the TrieHandler class
@@ -40,25 +40,6 @@ public class TrieHandler : DataHandler
         }
     }
 
-    private void GetTrieCache()
-    {
-        if (!cache.TryGetValue("Trie", out allPeople)) //see if there is not a Trie
-        {            
-            allPeople = new Trie<Person>();
-            var allUserTask = db.GetAllUsers(); // get a list of all users.
-            allUserTask.Wait();
-
-            foreach (var p in allUserTask.Result) // add all users to the Trie
-            {
-                allPeople.Add(p.FirstName.ToLower(), p);
-                allPeople.Add(p.LastName.ToLower(), p);
-            }
-
-            var cacheEntryOptions = new MemoryCacheEntryOptions();
-            cache.Set("Trie", allPeople); // save Trie to cache
-        }
-    }
-
     /// <summary>
     /// Gets all users matching the paramref name="parameters"
     /// </summary>
@@ -66,7 +47,10 @@ public class TrieHandler : DataHandler
     /// <returns>Returns a list of all users where the first or last name matches the search term.</returns>
     public override IEnumerable<PeopleSearch.Models.V1.Person> GetAllUsers(PeopleSearch.Models.V1.PersonQueryParameter parameters)
     {
-        if (successor == null) throw new NullReferenceException("There is no Successor to complete the request.");
+        if (successor == null) 
+        {
+            throw new NullReferenceException("There is no Successor to complete the request.");
+        }
 
         if (allPeople == null)
         {
@@ -76,7 +60,6 @@ public class TrieHandler : DataHandler
         {
             var results = allPeople.Retrieve(parameters.Prefix.ToLower());
             var limit = (parameters.Limit > 0 && parameters.Limit < Constants.DEFAULT_LIMIT) ? parameters.Limit : Constants.DEFAULT_LIMIT;
-
 
             if (parameters.Offset > -1)
             {
@@ -149,7 +132,7 @@ public class TrieHandler : DataHandler
             throw new NullReferenceException("There is no Successor to complete the request.");
         }
 
-        if (allPeople == null) //change to configuration
+        if (allPeople == null) 
         {
             return successor.GenerateUsers(number);
         }
@@ -163,6 +146,31 @@ public class TrieHandler : DataHandler
             }
 
             return people;
+        }
+    }
+
+    private void GetTrieCache()
+    {
+        // see if there is not a Trie
+        if (!cache.TryGetValue("Trie", out allPeople)) 
+        {            
+            allPeople = new Trie<Person>();
+
+            // get a list of all users.
+            var allUserTask = db.GetAllUsers(); 
+            allUserTask.Wait();
+
+            // add all users to the Trie
+            foreach (var p in allUserTask.Result) 
+            {
+                allPeople.Add(p.FirstName.ToLower(), p);
+                allPeople.Add(p.LastName.ToLower(), p);
+            }
+
+            var cacheEntryOptions = new MemoryCacheEntryOptions();
+
+            // save Trie to cache
+            cache.Set("Trie", allPeople); 
         }
     }
 }

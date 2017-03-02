@@ -23,6 +23,7 @@ namespace PeopleSearch.Controllers
         /// <summary>
         /// Initializes a new instance of the PeopleController class.
         /// </summary>
+        /// <param name="logger"></param>
         /// <param name="cache"></param>
         /// <param name="handler"></param>
         /// <param name="appSettings"></param>
@@ -103,7 +104,7 @@ namespace PeopleSearch.Controllers
             }
             catch (Exception exc)
             {
-                logger.LogError(new EventId(), exc, "Exception");
+                logger.LogError(default(EventId), exc, "Exception");
                 return StatusCode(500);
             }
         }
@@ -143,7 +144,7 @@ namespace PeopleSearch.Controllers
             }
             catch (Exception exc)
             {
-                logger.LogError(new EventId(), exc, "Exception");
+                logger.LogError(default(EventId), exc, "Exception");
                 return StatusCode(500);
             }
         }

@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
 using PeopleSearch.Data;
 using PeopleSearch.Settings;
 
@@ -50,26 +50,26 @@ namespace PeopleSearch
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            //Add application settings
+            // Add application settings
             var appSettings = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettings);
 
             // Add database context object
             var connection = Configuration["Data:SqliteConnectionString"];
-            services.AddDbContext<PeopleSearch.Data.PersonSearchingContext>( options => options.UseSqlite(connection));
+            services.AddDbContext<PeopleSearch.Data.PersonSearchingContext>(options => options.UseSqlite(connection));
 
             services.AddMemoryCache();
+            
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
             
             // added chain of responsibility to DI framework
-            services.AddTransient<DataHandler, TrieHandler> (
+            services.AddTransient<DataHandler, TrieHandler>(
                 (sp) => 
                 {
-                    //Bugs with TrieHandler :(
                     var result = new TrieHandler(sp.GetService<IMemoryCache>(), sp.GetService<PersonSearchingContext>());
                     result.SetSuccessor(new DatabaseHandler(sp.GetService<PersonSearchingContext>()));
-                    return result; //new DatabaseHandler(sp.GetService<PersonSearchingContext>());
+                    return result; 
                 });
 
             services.AddMvc(options => options.MaxModelValidationErrors = 50);

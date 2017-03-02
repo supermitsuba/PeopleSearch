@@ -17,7 +17,6 @@ namespace PeopleSearch.Data
         public PersonSearchingContext(DbContextOptions<PersonSearchingContext> options) 
             : base(options)
         { 
-
         }
 
         /// <summary>
@@ -25,7 +24,6 @@ namespace PeopleSearch.Data
         /// </summary>
         /// <returns></returns>
         public DbSet<Person> People { get; set; }
-
 
         /// <summary>
         /// Count is used to see how many people are in the database.

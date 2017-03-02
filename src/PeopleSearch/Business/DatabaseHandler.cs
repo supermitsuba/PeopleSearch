@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,7 +74,10 @@ public class DatabaseHandler : DataHandler
         }
         catch (Exception exc)
         {
-            if (successor == null) throw exc;
+            if (successor == null) 
+            {
+                throw exc;
+            }
 
             return successor.GetAllUsers(parameters);
         }
@@ -112,7 +114,10 @@ public class DatabaseHandler : DataHandler
         }
         catch (Exception exc)
         {
-            if (successor == null) throw exc;
+            if (successor == null) 
+            {
+                throw exc;
+            }
 
             return successor.SavePerson(person);
         }
@@ -145,11 +150,11 @@ public class DatabaseHandler : DataHandler
                 {
                     FirstName = n.FirstName,
                     LastName = n.LastName,
-                    Address1 = "1352 Random St.",
+                    Address1 = rnd.Next(100, 9999) + " Random St.",
                     Address2 = string.Empty,
                     City = "RandomCity",
                     AddressState = GetRandomState(rnd),
-                    Zip = rnd.Next(10000, 99999), //this isnt correct, but it provides something
+                    Zip = rnd.Next(10000, 99999), // this isnt correct, but it provides something
                     Age = rnd.Next(0, 100),
                     PictureUrl = "http://jordenlowe.com/logo.jpg"
                 };

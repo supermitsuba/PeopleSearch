@@ -10,63 +10,103 @@ namespace Gma.DataStructures.StringSearch
 {
     /// <summary>
     /// Interface to be implemented by a data structure 
-    /// which allows adding values <see cref="TValue"/> associated with <b>string</b> keys.
+    /// which allows adding values Tvalue associated with <b>string</b> keys.
     /// The interface allows retrieveal of multiple values 
     /// </summary>
     /// <typeparam name="TValue"></typeparam>
     public interface ITrie<TValue>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         IEnumerable<TValue> Retrieve(string query);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
         void Add(string key, TValue value);
     }
 
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class Trie<TValue> : TrieNode<TValue>, ITrie<TValue>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public IEnumerable<TValue> Retrieve(string query)
         {
             return Retrieve(query, 0);
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
         public void Add(string key, TValue value)
         {
             Add(key, 0, value);
         }
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class TrieNode<TValue> : TrieNodeBase<TValue>
     {
         private readonly Dictionary<char, TrieNode<TValue>> m_Children;
         private readonly Queue<TValue> m_Values;
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         protected TrieNode()
         {
             m_Children = new Dictionary<char, TrieNode<TValue>>();
             m_Values = new Queue<TValue>();
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected override int KeyLength
         {
             get { return 1; }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected override IEnumerable<TrieNodeBase<TValue>> Children()
         {
             return m_Children.Values;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected override IEnumerable<TValue> Values()
         {
             return m_Values;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         protected override TrieNodeBase<TValue> GetOrCreateChild(char key)
         {
             TrieNode<TValue> result;
@@ -78,7 +118,12 @@ namespace Gma.DataStructures.StringSearch
             return result;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
         protected override TrieNodeBase<TValue> GetChildOrNull(string query, int position)
         {
             if (query == null) throw new ArgumentNullException("query");
@@ -89,25 +134,45 @@ namespace Gma.DataStructures.StringSearch
                     : null;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
         protected override void AddValue(TValue value)
         {
             m_Values.Enqueue(value);
         }
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class TrieNodeBase<TValue>
     {
+        /// <summary>
+        ///     
+        /// </summary>
+        /// <returns></returns>
         protected abstract int KeyLength { get; }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected abstract IEnumerable<TValue> Values();
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected abstract IEnumerable<TrieNodeBase<TValue>> Children();
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="position"></param>
+        /// <param name="value"></param>
         public void Add(string key, int position, TValue value)
         {
             if (key == null) throw new ArgumentNullException("key");
@@ -122,13 +187,25 @@ namespace Gma.DataStructures.StringSearch
             child.Add(key, position + 1, value);
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
         protected abstract void AddValue(TValue value);
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         protected abstract TrieNodeBase<TValue> GetOrCreateChild(char key);
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
         protected virtual IEnumerable<TValue> Retrieve(string query, int position)
         {
             return
@@ -137,7 +214,12 @@ namespace Gma.DataStructures.StringSearch
                     : SearchDeep(query, position);
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
         protected virtual IEnumerable<TValue> SearchDeep(string query, int position)
         {
             TrieNodeBase<TValue> nextNode = GetChildOrNull(query, position);
@@ -146,16 +228,29 @@ namespace Gma.DataStructures.StringSearch
                        : Enumerable.Empty<TValue>();
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
         protected abstract TrieNodeBase<TValue> GetChildOrNull(string query, int position);
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
         private static bool EndOfString(int position, string text)
         {
             return position >= text.Length;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private IEnumerable<TValue> ValuesDeep()
         {
             return 
@@ -163,7 +258,10 @@ namespace Gma.DataStructures.StringSearch
                     .SelectMany(node => node.Values());
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected IEnumerable<TrieNodeBase<TValue>> Subtree()
         {
             return

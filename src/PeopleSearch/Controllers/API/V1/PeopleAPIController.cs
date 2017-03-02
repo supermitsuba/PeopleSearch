@@ -51,7 +51,8 @@ namespace PeopleSearch.Controllers.API.V1
             }
             catch (Exception exc)
             {
-                logger.LogError(new EventId(), exc, "Exception");
+                var eventId = default(EventId);
+                logger.LogError(eventId, exc, "Exception");
                 return StatusCode(500);
             }
         }
@@ -71,8 +72,9 @@ namespace PeopleSearch.Controllers.API.V1
                 return Ok();
             }
             catch (Exception exc)
-            {
-                logger.LogError(new EventId(), exc, "Exception");
+            {                
+                var eventId = default(EventId);
+                logger.LogError(eventId, exc, "Exception");
                 return StatusCode(500);
             }
         }
@@ -94,8 +96,9 @@ namespace PeopleSearch.Controllers.API.V1
                 return Ok(result);
             }
             catch (Exception exc)
-            {
-                logger.LogError(new EventId(), exc, "Exception");
+            {                
+                var eventId = default(EventId);
+                logger.LogError(eventId, exc, "Exception");
                 return StatusCode(500);
             }
         }
