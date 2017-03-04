@@ -12,7 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch", "src\PeopleSearch\PeopleSearch.xproj", "{7E0B36F0-51E2-41B6-9AE2-42B9D4600855}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.Tests", "src\PeopleSearch.Tests\PeopleSearch.Tests.xproj", "{11E0274A-257C-4FB8-9908-CE0CD9AD20AD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{852114CC-53E3-4CFD-A40F-91824B5E367E}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.Tests", "test\PeopleSearch.Tests\PeopleSearch.Tests.xproj", "{11E0274A-257C-4FB8-9908-CE0CD9AD20AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +36,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7E0B36F0-51E2-41B6-9AE2-42B9D4600855} = {1DBF1E7A-201C-4753-B1CD-139B677396D8}
-		{11E0274A-257C-4FB8-9908-CE0CD9AD20AD} = {1DBF1E7A-201C-4753-B1CD-139B677396D8}
+		{11E0274A-257C-4FB8-9908-CE0CD9AD20AD} = {852114CC-53E3-4CFD-A40F-91824B5E367E}
 	EndGlobalSection
 EndGlobal
