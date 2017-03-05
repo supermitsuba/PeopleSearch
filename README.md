@@ -49,6 +49,17 @@ Entity Setup : [Setup Guide](https://docs.microsoft.com/en-us/ef/core/get-starte
 
 You might notice that with each feature there is a release created.  This should show how the project evolved with each new feature being added.
 
+### AppSettings
+
+To configure the application, you must find the files by the name of appsettings.json and appsettings.development.json.  The appsettings.json are for default values.  The development file is for overriding development specific settings.  There is no production settings, but this would only require adding an appsettings.production.json.
+
+The settings that are in the project are the following:
+
+1. Logging
+  - This setting is for controlling the logging in the application.  You can set if it should output to console or file, log levels and more.
+2.  SQLite Database settings
+  - Set the SqliteConnectionString to the SQLite database you would like to connect.
+
 ## Tradeoffs
 
 ### ASP.net CORE
